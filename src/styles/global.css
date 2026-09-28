@@ -10,10 +10,10 @@ h3 {
   font-family: var(--font-cabin);
 }
 
-/*LAyout of whole page */
-body {
+/*Layout of whole page */
+/* body {
   display: grid;
-  /* Tilføj navngivne linjer */
+  /* Tilføj navngivne linjer
   grid-template-columns: [full-start]1fr [content]minmax(0, 70ch) [content-end] 1fr[full-end];
   column-gap: 1rem;
 
@@ -39,8 +39,7 @@ main,
 
 header,
 footer,
-section,
-.services{
+section{
   grid-column: content;
 }
 
@@ -60,4 +59,29 @@ footer {
   > * {
     grid-column: content;
   }
+} */
+
+main {
+  display: grid;
+  grid-template-columns: 
+  [full-start] 1fr 
+  [content-start]minmax(0, 70ch) [content-end]
+  1fr[full-end];
+}
+
+main > section{
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: content;
+}
+
+.breakout {
+  background: #a8fad5;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: full;
+}
+
+.breakout > div {
+  grid-column: content;
 }
