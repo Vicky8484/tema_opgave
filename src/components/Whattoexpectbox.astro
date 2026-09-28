@@ -1,0 +1,50 @@
+---
+
+---
+<section class="whattoexpect-layout">
+<figure>
+<img src="images/ryan.webp" alt="">
+</figure>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ¨
+    Consequuntur voluptatum laboriosam perferendis dignissimos,
+     sunt quo praesentium quod magni rerum vel aspernatur cum libero
+      amet quaerat adipisci tempore asperiores autem doloribus!</p>
+
+      </section>
+
+
+  <style>
+
+
+.whattoexpect-layout {
+  display: flex;
+  flex-flow: row-reverse wrap; 
+  gap: 1rem;
+  > * {
+    flex: 300px;
+  }
+}
+
+  figure {
+  margin-inline: auto;
+  max-inline-size: 300px;
+  margin: 3rem 1rem;
+  display: block;
+
+/**til start med^^ */
+
+  position: relative;
+  isolation: isolate; 
+  
+  &::before{
+    content: "";
+    position: absolute;
+    top: -1rem;
+    right: -1rem; 
+    height: 100px;
+    width: 100px;
+    background: green;
+    z-index: -1; 
+  }
+}
+</style>
