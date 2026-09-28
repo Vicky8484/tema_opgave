@@ -9,3 +9,54 @@ h2,
 h3 {
   font-family: var(--font-cabin);
 }
+
+/*LAyout of whole page */
+body {
+  display: grid;
+  /* Tilføj navngivne linjer */
+  grid-template-columns: [full-start]1fr [content]minmax(0, 70ch) [content-end] 1fr[full-end];
+
+  column-gap: 1rem;
+
+  > * {
+    grid-column: content;
+  }
+  > .full-bleed {
+    grid-column: full;
+  }
+}
+main {
+  grid-column: full;
+}
+
+header,
+footer,
+main,
+.breakout {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+header,
+footer,
+section {
+  grid-column: content;
+}
+
+.breakout {
+  grid-column: full;
+  background: #a8fad5;
+
+  > * {
+    grid-column: content;
+  }
+}
+
+header,
+footer {
+  grid-column: full;
+
+  > * {
+    grid-column: content;
+  }
+}
