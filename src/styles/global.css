@@ -10,78 +10,37 @@ h3 {
   font-family: var(--font-cabin);
 }
 
+
 /*Layout of whole page */
-/* body {
-  display: grid;
-  /* Tilføj navngivne linjer
-  grid-template-columns: [full-start]1fr [content]minmax(0, 70ch) [content-end] 1fr[full-end];
-  column-gap: 1rem;
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 
+      [full-start]1fr 
+      [content-start]minmax(0, 1200px) [content-end] 
+      1fr[full-end];
 
-  > * {
-    grid-column: content;
-  }
-  > .full-bleed {
-    grid-column: full;
-  }
-}
+      > * {
+        display: grid;
+        grid-column: content;
+      }
 
-main {
-  grid-column: full;
-}
+      > .full-bleed {
+        grid-column: full-start / full-end;
 
-header,
-footer,
-main,
-.breakout {
-  display: grid;
-  grid-template-columns: subgrid;
-}
+        > * {
+        grid-column: content;
+      }
+      }
+    }
 
-header,
-footer,
-section{
-  grid-column: content;
-}
+    header,
+    footer,
+    .full-bleed {
+      grid-template-columns: subgrid;
+      grid-column: full-start / full-end;
 
-.breakout {
-  grid-column: full;
-  background: #a8fad5;
-
-  > * {
-    grid-column: content;
-  }
-}
-
-header,
-footer {
-  grid-column: full;
-
-  > * {
-    grid-column: content;
-  }
-} */
-
-main {
-  display: grid;
-  grid-template-columns: 
-  [full-start] 1fr 
-  [content-start]minmax(0, 70ch) [content-end]
-  1fr[full-end];
-}
-
-main > section{
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: content;
-}
-
-.breakout {
-  background: #a8fad5;
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: full;
-}
-
-.breakout > div {
-  grid-column: content;
-}
+      > * {
+        grid-column: content;
+      }
+    }
