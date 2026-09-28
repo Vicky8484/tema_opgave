@@ -4,7 +4,7 @@ import Services from "./Services.astro";
 import CEOImage from "@assets/images/ceo.webp";
 ---
 
-<section class="hero">
+<section class="hero full-bleed">
   <div class="hero-content">
     <h1>Empowering Your Business Growth</h1>
     <p>
@@ -32,8 +32,6 @@ import CEOImage from "@assets/images/ceo.webp";
       .hero-content {
         background-color: var(--color-ui-primary);
         color: var(--color-surface-primary);
-        /* grid-template-columns: subgrid;
-        grid-column: content; */
 
         button {
           background: var(--color-surface-primary);
@@ -42,6 +40,9 @@ import CEOImage from "@assets/images/ceo.webp";
           padding-inline: 1.5rem;
           padding-block: 0.5rem;
         }
+      }
+
+      > div {
       }
     }
   }

@@ -2,7 +2,7 @@
 //@ts-nocheck
 ---
 
-<section>
+<header class="full-bleed">
   <h1>Ask<span>Experts</span></h1>
   <ul>
     <li><a href="index.astro">Home</a></li>
@@ -11,15 +11,16 @@
     <li><a href="about.astro">About</a></li>
   </ul>
   <button>Login</button>
-</section>
+</header>
 
 <style>
-  section {
+  header {
     background-color: var(--color-ui-primary);
     color: var(--color-text-muted);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 4rem;
 
     ul {
       display: flex;
@@ -31,7 +32,6 @@
         transition: border-bottom 1s ease;
 
         &:hover {
-          /* text-decoration: underline var(--color-action) 3px; */
           border-bottom: var(--color-action) 3px solid;
         }
       }
