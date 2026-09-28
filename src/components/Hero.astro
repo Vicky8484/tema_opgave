@@ -15,6 +15,7 @@ import CEOImage from "@assets/images/ceo.webp";
     <a href="#0">Book a Meeting</a>
     <a href="#0">Learn More</a>
   </div>
+
   <Image src={CEOImage} alt="CEO" />
 
   <Services />
@@ -25,7 +26,23 @@ import CEOImage from "@assets/images/ceo.webp";
   @layer components {
     .hero {
       background-color: #f3f4f6;
-      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .hero-content {
+        background-color: var(--color-ui-primary);
+        color: var(--color-surface-primary);
+        /* grid-template-columns: subgrid;
+        grid-column: content; */
+
+        button {
+          background: var(--color-surface-primary);
+          border: none;
+          border-radius: 30px;
+          padding-inline: 1.5rem;
+          padding-block: 0.5rem;
+        }
+      }
     }
   }
 </style>
