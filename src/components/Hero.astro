@@ -5,44 +5,48 @@ import CEOImage from "@assets/images/ceo.webp";
 ---
 
 <section class="hero full-bleed">
-  <div class="hero-content">
-    <h1>Empowering Your Business Growth</h1>
-    <p>
-      Discover tailored strategies and expert insights to take your business to
-      the next level. Let us help you navigate challenges and achieve
-      sustainable success.
-    </p>
-    <a href="#0">Book a Meeting</a>
-    <a href="#0">Learn More</a>
-  </div>
+  <div class="hero-main">
+    <div class="hero-content">
+      <h1>Empowering Your Business Growth</h1>
+      <p>
+        Discover tailored strategies and expert insights to take your business
+        to the next level. Let us help you navigate challenges and achieve
+        sustainable success.
+      </p>
+      <a href="#0">Book a Meeting</a>
+      <a href="#0">Learn More</a>
+    </div>
 
-  <Image src={CEOImage} alt="CEO" />
+    <Image src={CEOImage} alt="CEO" />
+  </div>
 
   <Services />
 </section>
 
 <style>
   /* Styles her */
-  @layer components {
-    .hero {
-      background-color: #f3f4f6;
+  .hero {
+    background-color: #f3f4f6;
+    grid-template-columns: subgrid;
+    grid-column: full-start / full-end;
+
+    .hero-main {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      /* grid-template-columns: repeat(2, 1fr); */
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-      .hero-content {
-        background-color: var(--color-ui-primary);
-        color: var(--color-surface-primary);
+    .hero-content {
+      background-color: var(--color-ui-primary);
+      color: var(--color-surface-primary);
+      /* grid-template-columns: subgrid; */
 
-        button {
-          background: var(--color-surface-primary);
-          border: none;
-          border-radius: 30px;
-          padding-inline: 1.5rem;
-          padding-block: 0.5rem;
-        }
-      }
-
-      > div {
+      button {
+        background: var(--color-surface-primary);
+        border: none;
+        border-radius: 30px;
+        padding-inline: 1.5rem;
+        padding-block: 0.5rem;
       }
     }
   }

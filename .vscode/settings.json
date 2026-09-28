@@ -11,5 +11,6 @@
   "chat.agent.enabled": false,
   "editor.inlineSuggest.enabled": false,
   "github.copilot.nextEditSuggestions.enabled": false,
-  "prettier.printWidth": 80
+  "prettier.printWidth": 80,
+  "liveServer.settings.port": 5501
 }

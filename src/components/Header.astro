@@ -2,25 +2,32 @@
 //@ts-nocheck
 ---
 
-<header class="full-bleed">
-  <h1>Ask<span>Experts</span></h1>
-  <ul>
-    <li><a href="index.astro">Home</a></li>
-    <li><a href="/src/pages/case-studies/index.astro">Case Studies</a></li>
-    <li><a href="/src/pages/team/index.astro">Team</a></li>
-    <li><a href="about.astro">About</a></li>
-  </ul>
-  <button>Login</button>
+<header>
+  <div class="header-inner">
+    <h1>Ask<span>Experts</span></h1>
+    <ul>
+      <li><a href="index.astro">Home</a></li>
+      <li><a href="/src/pages/case-studies/index.astro">Case Studies</a></li>
+      <li><a href="/src/pages/team/index.astro">Team</a></li>
+      <li><a href="about.astro">About</a></li>
+    </ul>
+    <button>Login</button>
+  </div>
 </header>
 
 <style>
   header {
     background-color: var(--color-ui-primary);
     color: var(--color-text-muted);
-    display: flex;
     justify-content: space-between;
     align-items: center;
     height: 4rem;
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     ul {
       display: flex;
