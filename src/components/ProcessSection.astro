@@ -1,3 +1,77 @@
 ---
 //@ts-nocheck
+import { Image } from 'astro:assets';
+import Dame from '../data/images/damemedkryllethårderkiggerpådig.jpg';
+import Todamehænder from '../data/images/todamehænder.jpg';
+import Todamercompu from '../data/images/todamermedencomputer.jpg';
+import { Icon } from 'astro/runtime/client/dev-toolbar/ui-library/icons.js';
+import Phone from '../icons/phone.svg';
+import Clock from '../icons/clock.svg';
+import Place from '../icons/pin.svg'
 ---
+
+<p>Process</p>
+<h1>Contact Us. It’s Easy.</h1>
+<p>Leverage agile frameworks to provide a robust synopsis for high level overviews.
+     Iterative approaches to corporate strategy foster collaborative.</p>
+<ul style="list-style-type:none;">
+    <li>{Phone}
+        Call Today
++1 800 100 900</li>
+    <li>{Clock}
+        Monday To Friday
+9AM - 5PM</li>
+    <li>{Place}
+        USA Office
+195 Devonshire St Boston, MA 02110
+</li>
+</ul>
+
+<div class="gridafbillder">
+    <figure>
+  <Image src= {Dame} alt="Dame med kryllet hår der kigger på dig"/>
+  </figure>
+  <Image src= {Todamehænder} alt="to sæt kvinde hænder"/>
+  <Image src= {Todamercompu} alt="to kvinder der snakker sammen over en computer"/>
+</div>
+
+<style>
+
+  
+    .gridafbillder{
+        display: grid;
+       grid-template-columns: 1fr 1fr;
+      & > :first-child{
+grid-row: span 2;
+     }
+    }
+    
+  figure {
+  margin-inline: auto;
+  max-inline-size: 300px;
+
+  display: block;
+
+
+
+/**til start med^^ */
+
+  position: relative;
+  isolation: isolate; 
+  
+  &::before{
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    left: -1rem; 
+    height: 100px;
+    width: 100px;
+    background: var(--color-ui-secondary);
+    z-index: -1; 
+    border-radius: 15px;
+  }
+}
+ img{
+    border-radius: 15px; 
+  }
+</style>
