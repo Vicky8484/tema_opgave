@@ -1,11 +1,11 @@
 ---
+//@ts-nocheck
 const { scroll } = Astro.props;
 ---
 
 <article>
   <svg height="80px" width="80px">{scroll.icon}</svg>
   <h2>{scroll.title}</h2>
-  <br />
   <p>{scroll.description}</p>
 </article>
 

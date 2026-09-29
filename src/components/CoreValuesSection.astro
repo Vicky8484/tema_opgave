@@ -1,5 +1,33 @@
 ---
 //@ts-nocheck
+import ValueCard from "@components/ValueCard.astro";
+const response = await fetch("https://ftk-api.pages.dev/core-values");
+const { title, subtitle, eyebrow, values: valuesData } = await response.json();
 ---
 
-<h1>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey</h1>
+<section class="coreValues full-bleed">
+  <p>{eyebrow}</p>
+  <h1>{title}</h1>
+  <h3>{subtitle}</h3>
+
+  <section class="valueCardBox">
+    {valuesData.map((value) => <ValueCard value={value} />)}
+  </section>
+</section>
+
+<style>
+  .coreValues {
+    background-color: var(--color-ui-primary);
+    color: white;
+    padding-block: 3rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .valueCardBox {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+</style>

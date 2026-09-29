@@ -2,15 +2,11 @@
 //@ts-nocheck
 import ScrollCard from "@components/ScrollCard.astro";
 
-// const scrollData = await fetch(
-//   "https://ftk-api.pages.dev/financial-projections",
-// ).then((res) => res.json());
-
 const response = await fetch("https://ftk-api.pages.dev/financial-projections");
 const { title, subtitle, eyebrow, values: scrollData } = await response.json();
 ---
 
-<section id="financialProjectionsSection">
+<section id="financialProjectionsSection" class="full-bleed">
   <p>{eyebrow}</p>
   <br />
   <h1>{title}</h1>
@@ -26,8 +22,9 @@ const { title, subtitle, eyebrow, values: scrollData } = await response.json();
 
 <style>
   #financialProjectionsSection {
-    padding-top: 3rem;
+    padding-block: 3rem;
     min-width: 0;
+    background: #f9fafd;
 
     h1 {
       font-size: 2rem;
