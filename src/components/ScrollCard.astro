@@ -1,0 +1,29 @@
+---
+const { scroll } = Astro.props;
+---
+
+<article>
+  <svg height="80px" width="80px">{scroll.icon}</svg>
+  <h2>{scroll.title}</h2>
+  <br />
+  <p>{scroll.description}</p>
+</article>
+
+<style>
+  article {
+    background: var(--color-surface-tertiary);
+    color: var(--color-text);
+    border-radius: 20px;
+    padding: 1rem;
+
+    flex: 0 0 300px;
+    transition:
+      background 1s ease,
+      color 2s ease;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+</style>
