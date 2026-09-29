@@ -1,0 +1,158 @@
+ ---
+ ---
+ <div class="tekst-grafer">
+<div>
+ <h3>Experience</h3>
+<h1>More than 25 years of experience</h1>
+<h4>3000+ our clients are insured around the World</h4> 
+ </div>
+ 
+ <div>
+    <section class="stat-list" aria-label="Statistik">
+         
+      <figure data-value="33">
+        <svg viewBox="0 0 100 100">
+          <circle class="track" />
+          <circle class="progress" pathLength="100" />
+          <circle class="marker" r="4" fill="red"/>
+        </svg>
+
+        <figcaption>Consistensy</figcaption>
+      </figure>
+
+      <figure data-value="75">
+        <svg viewBox="0 0 100 100">
+          <circle class="track" />
+          <circle class="progress" pathLength="100" />
+          <circle class="marker" r="4" fill="red" />
+        </svg>
+        <figcaption>Improvement</figcaption>
+      </figure>
+
+      <figure data-value="90">
+        <svg viewBox="0 0 100 100">
+          <circle class="track" />
+          <circle class="progress" pathLength="100" />
+          <circle class="marker" r="4" fill="red" />
+        </svg>
+        <figcaption>Branching</figcaption>
+      </figure>
+    </section>
+    </div>
+</div>
+
+  <style>
+
+.tekst-grafer{
+    display: grid;
+ grid-template-columns: 1fr 2fr ;
+
+        background:  var(--color-surface-highlight); 
+    padding: 15%; 
+    h3, h4{
+        text-align: center;
+    }
+}
+
+main {
+  max-inline-size: 60rem;
+  margin-inline: auto;
+}
+
+h1 {
+  margin-block-end: 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.125;
+  text-align: center;
+}
+
+.stat-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+figure {
+  flex: 0 1 200px;
+  min-inline-size: 0;
+  text-align: center;
+
+  --value: attr(data-value type(<number>));
+  --value-string: attr(data-value);
+  --value-percent: attr(data-value %);
+
+  /* TODO 1: Læs data-value som tekst, tal og procent med attr().
+     Kald værdierne --value-string, --value-number og --value-percent. */
+
+  container: circle/inline-size;
+  display: grid;
+  grid: "stack";
+  place-items: center;
+
+  /* TODO 3: Brug et fælles grid-område "stack" til SVG og ::after.
+     Centrér indholdet, og opret en inline-size-container med navnet stat. */
+}
+
+figure::after {
+  content: var(--value-string) "%";
+  grid-area: stack;
+  font-size: 30cqw;
+  font-weight: 700;
+  /* TODO 3: Vis --value-string med content, og placér tallet i "stack".
+     Brug 30cqw og font-weight: 700, så tallet følger figurens bredde. */
+}
+
+svg {
+  rotate: -90deg;
+  grid-area: stack;
+  overflow: visible;
+  /* TODO 2: Drej SVG'en -90deg, så ringen starter øverst. */
+  /* TODO 3: Placér SVG'en i "stack". */
+}
+
+.track {
+  stroke: var(--color-neutrals-200);
+}
+
+.track,
+.progress {
+  --stroke-width: 4;
+  cx: 50;
+  cy: 50;
+  r: calc(50 - (var(--stroke-width) / 2));
+  fill: none;
+  stroke: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);
+      --l: - .10;
+  stroke-width: var(--stroke-width);
+}
+
+.progress {
+  stroke: var(--color-neutrals-200);
+  stroke-linecap: round;
+  stroke-dasharray: 100.1;
+  stroke-dashoffset: calc(100 - var(--value));
+  /* TODO 2: Brug stroke-dasharray og stroke-dashoffset sammen med
+     pathLength="100", så --value-number bestemmer ringens længde. */
+}
+
+.marker {
+  /* Markøren vises først, når du arbejder med trin 4. */
+  visibility: visible;
+  r: 4;
+  stroke: var(  --color-neutrals-900);
+  offset-path: circle(48px at 50px 50px);
+  offset-distance: var(--value-percent);
+  /* TODO 4: Brug en cirkulær offset-path med samme centrum og radius
+     som ringen. Lad --value-percent styre offset-distance,
+     og skift visibility til visible. */
+}
+
+figcaption {
+  margin-block-start: 0.75rem;
+}
+
+
+
+  </style>
