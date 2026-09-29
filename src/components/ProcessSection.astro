@@ -9,22 +9,26 @@ import Clock from '../icons/clock.svg';
 import Place from '../icons/pin.svg'
 ---
 
-<p>Process</p>
+<div class="detstore-grid">
+<div class="Teksten">
+<p class="process">Process</p>
 <h1>Contact Us. It’s Easy.</h1>
 <p>Leverage agile frameworks to provide a robust synopsis for high level overviews.
      Iterative approaches to corporate strategy foster collaborative.</p>
 <ul style="list-style-type:none;">
-    <li {Phone}>
+    <li ><Phone style="--accent: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);"/>
+        <div>
         Call Today
-+1 800 100 900</li>
-    <li {Clock}>
-        Monday To Friday
-9AM - 5PM</li>
-    <li {Place}>
-        USA Office
-195 Devonshire St Boston, MA 02110
-</li>
+<b>+1 800 100 900</b></div></li>
+    <li><Clock style="--accent: var(--color-ui-secondary)"/>
+       <div> Monday To Friday
+<b>9AM - 5PM</b></div></li>
+   <li> <Place style="--accent: var(--color-on-ui-primary-muted)"/> 
+       <div> USA Office
+<b>195 Devonshire St Boston, MA 02110</b>
+</div></li>
 </ul>
+</div>
 
 <div class="gridafbillder">
     <figure>
@@ -33,16 +37,58 @@ import Place from '../icons/pin.svg'
   <Image src= {todamehænder} alt="to sæt kvinde hænder"/>
   <Image src= {todamercompu} alt="to kvinder der snakker sammen over en computer"/>
 </div>
+</div>
 
 <style>
+    p{
+        color: var(--color-text-weak);
+    }
+    b{
+         color: var(--color-ui-primary); 
+         display: block;
+    }
+ul{
+    gap: 2rem;
+    display: flex; /**overskriver en global regl */
+    flex-direction: column;   /**overskriver en global regl */
+    color: var(--color-text-weak);
+    padding-left: 0%;
+ li{
+display: flex;
+gap: 1rem;
+align-items: center;
+    }
+}
 
-  
+.process{
+text-transform: uppercase;
+}
+
+svg { 
+    border-radius: 50%;
+    color:var(--accent);
+    background-color: oklch(from var(--accent) calc(l + 0.2) c h);
+    padding: 1rem;
+inline-size: 1.5rem;  
+block-size: 1.5rem;
+box-sizing: content-box;
+}
+
+.detstore-grid{
+      display: grid;
+ grid-template-columns: 1fr 2fr ;
+gap: 1rem;
+
+
+}
+
     .gridafbillder{
         display: grid;
        grid-template-columns: 1fr 1fr;
       & > :first-child{
 grid-row: span 2;
      }
+     gap: 1rem;
     }
     
   figure {
@@ -74,4 +120,4 @@ grid-row: span 2;
     border-radius: 15px; 
   }
 </style>
-<h1>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey</h1>
+
