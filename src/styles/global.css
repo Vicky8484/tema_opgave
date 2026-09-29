@@ -16,14 +16,13 @@ h3 {
       margin: 0;
       display: grid;
       grid-template-columns: 
-      [full-start]1fr 
-      [content-start]minmax(0, 1200px) [content-end] 
-      1fr[full-end];
-
-      > * {
-        display: grid;
-        grid-column: content;
-      }
+      [full-start]minmax(1rem, 1fr) 
+      [content-start]
+      minmax(0, 600px) 
+      [center]
+      minmax(0, 600px) 
+      [content-end] 
+      minmax(1rem, 1fr) [full-end];
 
       > .full-bleed {
         grid-column: full-start / full-end;
