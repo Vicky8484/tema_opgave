@@ -1,0 +1,25 @@
+---
+//@ts-nocheck
+const { value } = Astro.props;
+---
+
+<article>
+  <svg height="80px" width="80px">{value.icon}</svg>
+  <h2>{value.title}</h2>
+  <p>{value.description}</p>
+</article>
+
+<style>
+  article {
+    background: var(--color-surface-tertiary);
+    color: var(--color-text);
+    border-radius: 20px;
+    padding: 1rem;
+
+    flex: 300px;
+    flex-wrap: wrap;
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+</style>
