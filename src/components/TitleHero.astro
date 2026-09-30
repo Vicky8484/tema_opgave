@@ -7,13 +7,12 @@ const headerlink = Astro.url.pathname;
 const pageinfo = Headerinfo[headerlink]; 
 const {underoverskrift, headline, description } = pageinfo; 
 ---
-<p>{headerlink}</p>
+<div class="full-bleed">
 <p>{underoverskrift}</p>
 <h1>{headline}</h1>
 <div></div>
 <p>{description}</p>
-
-
+</div>
 
 
 <style>
