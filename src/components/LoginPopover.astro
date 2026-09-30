@@ -1,5 +1,6 @@
 ---
 //@ts-nocheck
+import Button from "@components/Button.astro";
 ---
 
 <div popover id="login">
@@ -7,14 +8,14 @@
   <form>
     <label for="email">
       Email
-      <input type="email" />
+      <input type="email" variant="input" />
     </label>
     <label for="password">
       Password
-      <input type="password" />
+      <input type="password" variant="input" />
     </label>
   </form>
-  <button popovertarget="login">Go to dashboard</button>
+  <Button variant="accent" popovertarget="login">Go to dashboard</Button>
 </div>
 
 <style>
@@ -58,5 +59,9 @@
       border: grey solid 1px;
       margin-top: 10px;
     }
+  }
+
+  button {
+    width: 100%;
   }
 </style>

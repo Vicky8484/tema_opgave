@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Services from "./Services.astro";
 import CEOImage from "@assets/images/ceo.webp";
+import Button from "@components/Button.astro";
 ---
 
 <section class="hero full-bleed">
@@ -13,8 +14,9 @@ import CEOImage from "@assets/images/ceo.webp";
         to the next level. Let us help you navigate challenges and achieve
         sustainable success.
       </p>
-      <a href="#0">Book a Meeting</a>
-      <a href="#0">Learn More</a>
+      <br />
+      <Button variant="accent" href="#0">Book a Meeting</Button>
+      <Button variant="border" href="#0">Learn More</Button>
     </div>
   </div>
 
@@ -60,6 +62,10 @@ import CEOImage from "@assets/images/ceo.webp";
         grid-row: hero-start / rohe-start;
         align-items: center;
         width: 60%;
+
+        > button:first-child {
+          margin-right: 1rem;
+        }
       }
     }
 
