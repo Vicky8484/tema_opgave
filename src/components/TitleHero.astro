@@ -1,5 +1,25 @@
 ---
 //@ts-nocheck
----
 
-<h1>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey</h1>
+
+import {Headerinfo} from "../data/headerdata";
+const headerlink = Astro.url.pathname; 
+const pageinfo = Headerinfo[headerlink]; 
+const {underoverskrift, headline, description } = pageinfo; 
+---
+<p>{headerlink}</p>
+<p>{underoverskrift}</p>
+<h1>{headline}</h1>
+<div></div>
+<p>{description}</p>
+
+
+
+
+<style>
+p{
+    color: var(--color-text-muted); 
+    align-items: center;
+}
+
+</style>
