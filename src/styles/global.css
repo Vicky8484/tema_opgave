@@ -106,3 +106,8 @@ html, body{
 touch-action: manipulation;
 }
     }
+
+h1{
+font-size: 2rem;
+margin-block: 1rem;
+    }
