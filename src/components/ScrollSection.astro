@@ -33,19 +33,22 @@ const { title, subtitle, eyebrow, values: scrollData } = await response.json();
 
   .scroll {
     color: white;
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: subgrid;
     min-width: 0;
-    max-width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: inline mandatory;
 
     .scrollBox {
+      grid-column: full-start / full-end;
       display: flex;
       flex-wrap: nowrap;
-      min-width: 0;
+      width: max-content;
       gap: 1rem;
-      padding-inline: 1rem;
+      padding-inline: 0;
       scroll-padding-inline: 1rem;
-      overflow-inline: auto;
-      display: flex;
-      scroll-snap-type: inline mandatory;
+      /* overflow-inline: auto; */
       gap: 1rem;
       padding-block: 1rem;
     }

@@ -1,10 +1,31 @@
 ---
 //@ts-nocheck
+import Cal from "../icons/cal.svg";
+import Card from "../icons/card.svg";
+import Law from "../icons/law.svg";
+import Money from "../icons/money.svg";
+import Gear from "../icons/gear.svg";
+import Bars from "../icons/bars.svg";
+import Clock from "../icons/clock.svg";
 const { scroll } = Astro.props;
+
+const icons = {
+  cal: Cal,
+  card: Card,
+  law: Law,
+  money: Money,
+  gear: Gear,
+  bars: Bars,
+  clock: Clock,
+};
+
+const iconName = scroll.icon?.toLowerCase().replace(/\.svg$/, "");
+const Icon = icons[iconName];
 ---
 
 <article>
-  <svg height="80px" width="80px">{scroll.icon}</svg>
+  {Icon && <Icon aria-hidden="true" />}
+  <br />
   <h2>{scroll.title}</h2>
   <p>{scroll.description}</p>
 </article>
@@ -25,5 +46,9 @@ const { scroll } = Astro.props;
     padding: 1.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
+
+    svg {
+      color: black;
+    }
   }
 </style>
