@@ -1,5 +1,9 @@
 /* Globale styles her */
 
+ #mobileMenuBtn{
+    display: none;
+  }
+
 html {
   font-family: var(--font-lato);
 }
@@ -43,4 +47,62 @@ h3 {
       > * {
         grid-column: content;
       }
+    }
+
+    /*Mobil menu*/
+    @media screen and (max-width: 800px){
+  header{
+    position: relative;
+    z-index: 2;
+  }
+
+  #mobileMenuBtn{
+    display: block;
+    width: auto;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    line-height: 1;
+    z-index: 3;
+    background-color: var(--headerbg);
+    border: none;
+    color: var(--headertextcolor);
+  }
+
+  #mobileMenuBtn:hover{
+    color: green;
+  }
+
+ header .header-inner > #mainNavigation {
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    box-sizing: border-box;
+    width: min(80vw, 18rem);
+    height: calc(100vh - 4rem);
+    padding: 2rem;
+    background-color: orange;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+  body.menu-open header .header-inner > #mainNavigation {
+    transform: translateX(0);
+  }
+
+  header .header-inner > #mainNavigation ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  /****Stopper blåt blink på mobil vers*****/
+html, body{
+  -webkit-tap-highlight-color: #00000000;
+  -webkit-tap-highlight-color: transparent;
+  
+  /****Forhindrer at siden zoomer når man trykker hurtigt*****/
+touch-action: manipulation;
+}
     }
