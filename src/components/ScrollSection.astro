@@ -4,14 +4,15 @@ import ScrollCard from "@components/ScrollCard.astro";
 
 const response = await fetch("https://ftk-api.pages.dev/financial-projections");
 const { title, subtitle, eyebrow, values: scrollData } = await response.json();
+import Tekst from "@components/Tekst.astro";
 ---
 
 <section id="financialProjectionsSection" class="full-bleed">
-  <p>{eyebrow}</p>
-  <br />
-  <h1>{title}</h1>
-  <br />
-  <h3>{subtitle}</h3>
+  <Tekst
+    title="Financial Projections"
+    subtitle="Financial projections are essential for planning and monitoring a company’s performance. They provide insights into potential revenue, expenses, and profitability over specific periods."
+    eyebrow="Financial Tools"
+  />
 
   <section class="scroll">
     <div class="scrollBox">
@@ -38,6 +39,7 @@ const { title, subtitle, eyebrow, values: scrollData } = await response.json();
     grid-template-columns: subgrid;
     min-width: 0;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: inline mandatory;
 
     .scrollBox {
