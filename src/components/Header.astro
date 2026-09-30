@@ -6,16 +6,13 @@ import LoginPopover from "@components/LoginPopover.astro";
 <header>
   <div class="header-inner">
     <h1>Ask<span>Experts</span></h1>
-    <nav>
     <ul>
       <li><a href="../">Home</a></li>
       <li><a href="../case-studies">Case Studies</a></li>
       <li><a href="../team">Team</a></li>
       <li><a href="../about">About</a></li>
     </ul>
-    <button popovertarget="login">Login</button>
-    </nav>
-    <button>Login</button>
+    <button class="login-trigger" popovertarget="login">Login</button>
     <LoginPopover />
   </div>
 </header>
@@ -39,6 +36,9 @@ import LoginPopover from "@components/LoginPopover.astro";
     ul {
       display: flex;
       gap: 2rem;
+      align-items: center;
+      margin: 0;
+      padding: 0;
 
       li {
         list-style-type: none;
