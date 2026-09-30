@@ -1,6 +1,7 @@
 ---
 //@ts-nocheck
 import LoginPopover from "@components/LoginPopover.astro";
+import Button from "@components/Button.astro";
 ---
 
 <header>
@@ -20,8 +21,9 @@ import LoginPopover from "@components/LoginPopover.astro";
         <li><a href="../about">About</a></li>
       </ul>
     </nav>
-
-    <button class="login-trigger" popovertarget="login">Login</button>
+    <Button variant="white" class="login-trigger" popovertarget="login"
+      >Login</Button
+    >
     <LoginPopover />
   </div>
 </header>
@@ -73,11 +75,6 @@ import LoginPopover from "@components/LoginPopover.astro";
     }
 
     button {
-      background: var(--color-surface-primary);
-      border: none;
-      border-radius: 30px;
-      padding-inline: 1.5rem;
-      padding-block: 0.5rem;
       anchor-name: --trigger;
     }
   }

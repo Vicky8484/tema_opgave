@@ -1,0 +1,51 @@
+---
+//@ts-nocheck
+const { href, variant = "primary", ...props } = Astro.props;
+---
+
+{
+  href ? (
+    <a data-variant={variant} {href}>
+      <slot />
+    </a>
+  ) : (
+    <button data-variant={variant} {...props}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  a,
+  button {
+    padding-block: 0.7rlh;
+    border-radius: 20px;
+    border: none;
+    text-decoration: none;
+    padding-inline: 1rem;
+    text-box: cap alphabetic;
+    background: var(--color-ui-primary);
+    color: contrast-color(var(--color-ui-primary));
+
+    @container style(--theme: dark) {
+      color: var(--color-ui-primary);
+      background: contrast-color(var(--color-ui-primary));
+    }
+  }
+
+  [data-variant="accent"] {
+    background: var(--color-action);
+    color: contrast-color(var(--color-action));
+  }
+
+  [data-variant="border"] {
+    border: white solid 1px;
+    background: (var(--color-ui-primary));
+  }
+
+  [data-variant="white"] {
+    color: var(--color-ui-primary);
+    background: contrast-color(var(--color-ui-primary));
+    padding-block: 0.5rlh;
+  }
+</style>
