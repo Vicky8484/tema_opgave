@@ -12,7 +12,7 @@ import LoginPopover from "@components/LoginPopover.astro";
       <li><a href="/src/pages/team/index.astro">Team</a></li>
       <li><a href="about.astro">About</a></li>
     </ul>
-    <button>Login</button>
+    <button popovertarget="login">Login</button>
     <LoginPopover />
   </div>
 </header>
@@ -29,6 +29,8 @@ import LoginPopover from "@components/LoginPopover.astro";
       display: flex;
       justify-content: space-between;
       align-items: center;
+      grid-template-columns: subgrid;
+      grid-column: content-start/content-end;
     }
 
     ul {
@@ -64,6 +66,7 @@ import LoginPopover from "@components/LoginPopover.astro";
       border-radius: 30px;
       padding-inline: 1.5rem;
       padding-block: 0.5rem;
+      anchor-name: --trigger;
     }
   }
 </style>

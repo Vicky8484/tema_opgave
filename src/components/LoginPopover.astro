@@ -2,4 +2,61 @@
 //@ts-nocheck
 ---
 
-<h1>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey</h1>
+<div popover id="login">
+  <h1>Dashboard Login</h1>
+  <form>
+    <label for="email">
+      Email
+      <input type="email" />
+    </label>
+    <label for="password">
+      Password
+      <input type="password" />
+    </label>
+  </form>
+  <button popovertarget="login">Go to dashboard</button>
+</div>
+
+<style>
+  #login {
+    background: var(--color-on-ui-primary);
+    width: 300px;
+    padding: 1rem;
+    border-radius: 15px;
+    position: absolute;
+    position-anchor: --trigger;
+    position-area: bottom;
+    inset: auto;
+    top: anchor(bottom);
+    right: anchor(right);
+    top: 1rem;
+    /* right: 1rem; */
+    box-shadow: #00000069 5px 5px 5px;
+    border: none;
+    margin: 0;
+
+    h1 {
+      color: black;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+
+    input {
+      border-radius: 20px;
+      height: 3rem;
+      align-items: center;
+      border: grey solid 1px;
+      margin-top: 10px;
+    }
+  }
+</style>
