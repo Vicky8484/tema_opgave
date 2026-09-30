@@ -1,5 +1,14 @@
 ---
 //@ts-nocheck
----
 
-<h1>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey</h1>
+const response = await fetch("https://ftk-api.pages.dev/faq");
+const faq = await response.json();
+
+console.log(faq);
+---
+<p>FAQ</p>
+<h1>Customer Questions</h1>
+<ul>
+{faq.map((item) => (
+  <li>{item.question}</li>)
+)  }</ul>
