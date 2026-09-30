@@ -3,6 +3,7 @@
 import { getCaseStudies } from "@lib/api";
 import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
+import TitleHero from "@components/TitleHero.astro";
 
 export async function getStaticPaths() {
   const caseStudies = await getCaseStudies();
@@ -19,6 +20,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 
 <Layout>
   <article class="case-story-article">
+     <TitleHero />
     <header>
       <Image
         src={image.src}
@@ -44,6 +46,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
         <a href="#0" class="button">{buttonLabel}</a>
       </div>
     </header>
+     
     <section class="case-story-content">
       {
         caseStudy.sections.map((section, index) => (
