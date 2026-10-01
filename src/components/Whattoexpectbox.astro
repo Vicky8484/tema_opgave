@@ -28,7 +28,12 @@ import folk from '../data/images/folkdersnakkeigruppe.jpg';
   <style>
 
 .whattoexpect-layout {
-  display: flex;
+        display: grid;
+ grid-template-columns: 1fr 2fr ;
+ grid-column: content;
+gap: 1rem;
+padding: 15px;
+      display: inline flex;
   flex-flow: wrap; 
   gap: 1rem;
   > * {

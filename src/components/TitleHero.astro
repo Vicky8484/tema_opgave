@@ -7,7 +7,8 @@ const headerlink = Astro.url.pathname;
 const pageinfo = Headerinfo[headerlink]; 
 const {underoverskrift, headline, description } = pageinfo; 
 ---
-<div class="full-bleed">
+
+<div class="full-bleed titlehero">
 <p>{underoverskrift}</p>
 <h1>{headline}</h1>
 <div></div>
@@ -15,10 +16,19 @@ const {underoverskrift, headline, description } = pageinfo;
 </div>
 
 
+
 <style>
-p{
-    color: var(--color-text-muted); 
-    align-items: center;
+
+.titlehero{
+text-align: center;
+
+ padding: 6%;
+ p{
+    color: var(--color-text-muted);    
+}
+}
+.full-bleed{
+background:  var(--color-surface-secondary);
 }
 
 </style>
