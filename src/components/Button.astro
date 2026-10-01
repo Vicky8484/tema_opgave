@@ -41,11 +41,17 @@ const { href, variant = "primary", ...props } = Astro.props;
   [data-variant="border"] {
     border: white solid 1px;
     background: (var(--color-ui-primary));
+    color: contrast-color(var(--color-ui-primary));
   }
 
   [data-variant="white"] {
     color: var(--color-ui-primary);
     background: contrast-color(var(--color-ui-primary));
     padding-block: 0.5rlh;
+  }
+
+  [data-variant="dark"] {
+    background: var(--color-ui-primary);
+    color: contrast-color(var(--color-ui-primary));
   }
 </style>

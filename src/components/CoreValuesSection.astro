@@ -5,15 +5,19 @@ const response = await fetch("https://ftk-api.pages.dev/core-values");
 const { title, subtitle, eyebrow, values: valuesData } = await response.json();
 const { theme = "default" } = Astro.props;
 import Tekst from "@components/Tekst.astro";
+import Button from "@components/Button.astro";
 ---
 
 <section class="coreValues full-bleed" data-theme={theme}>
-  <Tekst
-    title="Our core values & principles"
-    subtitle="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps."
-    eyebrow="Growing with our Clients"
-  />
+  <div class="textnbtn">
+    <Tekst
+      title="Our core values & principles"
+      subtitle="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps."
+      eyebrow="Growing with our Clients"
+    />
 
+    <Button variant="dark">Join our team</Button>
+  </div>
   <section class="valueCardBox">
     {valuesData.map((value) => <ValueCard value={value} />)}
   </section>
@@ -70,5 +74,18 @@ import Tekst from "@components/Tekst.astro";
       color: var(--color-ui-primary);
       background: contrast-color(var(--color-ui-primary));
     }
+  }
+
+  .textnbtn {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: 1rem;
+  }
+
+  button {
+    justify-self: end;
+    width: max-content;
+    white-space: nowrap;
   }
 </style>

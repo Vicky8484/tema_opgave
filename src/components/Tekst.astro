@@ -4,7 +4,7 @@ const { eyebrow, title, subtitle } = Astro.props;
 const hasActions = Astro.slots.has("actions");
 ---
 
-<header>
+<div>
   {eyebrow && <p>{eyebrow}</p>}
   <h1>{title}</h1>
   <p class="lede">{subtitle}</p>
@@ -15,4 +15,4 @@ const hasActions = Astro.slots.has("actions");
       </div>
     )
   }
-</header>
+</div>
