@@ -29,12 +29,12 @@ import folk from '../data/images/folkdersnakkeigruppe.jpg';
 
 .whattoexpect-layout {
         display: grid;
- grid-template-columns: 1fr 2fr ;
+ grid-template-columns: 1fr 1fr ;
  grid-column: content;
 gap: 1rem;
 padding: 15px;
-      display: inline flex;
-  flex-flow: wrap; 
+      /* display: inline flex;
+  flex-flow: wrap;  */
   gap: 1rem;
   > * {
     flex: 300px;
@@ -43,15 +43,18 @@ padding: 15px;
 
 
   figure {
-  margin-inline: auto;
-  max-inline-size: 300px;
-  margin: 3rem 1rem;
-  display: block;
 
- img{
-    border-radius: 15px; 
-  }
+    margin: 0;
+  img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+   border-radius: 15px; 
+ 
   
+}
+
 
 
 /**til start med^^ */
