@@ -112,3 +112,22 @@ h1 {
   font-size: 2rem;
   margin-block: 1rem;
 }
+.gul-linje {
+  --underline: 3px;
+  width: fit-content;
+  justify-self: center;
+  text-decoration: underline var(--color-yellow-500);
+  text-underline-offset: 3px;
+  anchor-name: --title;
+  text-box: cap alphabetic;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: anchor(--title left);
+    top: calc(anchor(--title top) + 1cap);
+    margin-top: 3px;
+    height: var(--color-yellow-500);
+    background: linear-gradient(90deg, #0000, var(--color-yellow-500));
+  }
+}
