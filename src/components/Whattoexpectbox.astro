@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import folk from '../data/images/folkdersnakkeigruppe.jpg';
 //@ts-nocheck
+import Checkmark from '../icons/checkmark.svg'; 
 ---
 
 <section class="whattoexpect-layout">
@@ -16,9 +17,9 @@ import folk from '../data/images/folkdersnakkeigruppe.jpg';
       Together, we create strategies tailored to your unique needs and goals.
 </p>
     <ul>
-        <li>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
-         <li>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
-      </ul>
+        <li><Checkmark style=" var(--color-ui-secondary)"/>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
+         <li><Checkmark style=" var(--color-ui-secondary))"/>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
+    </ul>
       </div>
       </section>
 
@@ -29,32 +30,32 @@ import folk from '../data/images/folkdersnakkeigruppe.jpg';
 
 .whattoexpect-layout {
         display: grid;
- grid-template-columns: 1fr 1fr ;
+ grid-template-columns: 1fr 2fr ;
  grid-column: content;
 gap: 1rem;
 padding: 15px;
-      /* display: inline flex;
-  flex-flow: wrap;  */
+      display: inline flex;
+  flex-flow: wrap; 
   gap: 1rem;
   > * {
     flex: 300px;
   }
 }
+ul{
+  list-style-type: none;
+}
 
 
   figure {
-
-    margin: 0;
-  img {
+  margin-inline: auto;
+  max-inline-size: 300px;
+  margin: 3rem 1rem;
   display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-   border-radius: 15px; 
- 
-  
-}
 
+ img{
+    border-radius: 15px; 
+  }
+  
 
 
 /**til start med^^ */
