@@ -1,8 +1,8 @@
 /* Globale styles her */
 
- #mobileMenuBtn{
-    display: none;
-  }
+#mobileMenuBtn {
+  display: none;
+}
 
 html {
   font-family: var(--font-lato);
@@ -14,49 +14,49 @@ h3 {
   font-family: var(--font-cabin);
 }
 
-
 /*Layout of whole page */
-    body {
-      margin: 0;
-      display: grid;
-      grid-template-columns: 
-      [full-start]minmax(1rem, 1fr) 
-      [content-start]
-      minmax(0, 600px) 
-      [center]
-      minmax(0, 600px) 
-      [content-end] 
-      minmax(1rem, 1fr) [full-end];
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns:
+    [full-start]minmax(1rem, 1fr)
+    [content-start]
+    minmax(0, 600px)
+    [center]
+    minmax(0, 600px)
+    [content-end]
+    minmax(1rem, 1fr) [full-end];
 
-      > .full-bleed {
-        grid-column: full-start / full-end;
+  > .full-bleed {
+    grid-column: full-start / full-end;
 
-        > * {
-        grid-column: content;
-      }
-      }
+    > * {
+      grid-column: content;
     }
+  }
+}
 
-    header,
-    footer,
-    .full-bleed {
-      display: grid;
-      grid-template-columns: subgrid;
-      grid-column: full-start / full-end;
+header,
+footer,
+.full-bleed,
+main {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: full-start / full-end;
 
-      > * {
-        grid-column: content;
-      }
-    }
+  > * {
+    grid-column: content;
+  }
+}
 
-    /*Mobil menu*/
-    @media screen and (max-width: 800px){
-  header{
+/*Mobil menu*/
+@media screen and (max-width: 800px) {
+  header {
     position: relative;
     z-index: 2;
   }
 
-  #mobileMenuBtn{
+  #mobileMenuBtn {
     display: block;
     width: auto;
     padding: 0.5rem;
@@ -68,11 +68,11 @@ h3 {
     color: var(--headertextcolor);
   }
 
-  #mobileMenuBtn:hover{
+  #mobileMenuBtn:hover {
     color: green;
   }
 
- header .header-inner > #mainNavigation {
+  header .header-inner > #mainNavigation {
     position: fixed;
     top: 4rem;
     right: 0;
@@ -90,7 +90,7 @@ h3 {
     transform: translateX(0);
   }
 
-  header .header-inner > #mainNavigation ul{
+  header .header-inner > #mainNavigation ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -98,16 +98,17 @@ h3 {
   }
 
   /****Stopper blåt blink på mobil vers*****/
-html, body{
-  -webkit-tap-highlight-color: #00000000;
-  -webkit-tap-highlight-color: transparent;
-  
-  /****Forhindrer at siden zoomer når man trykker hurtigt*****/
-touch-action: manipulation;
-}
-    }
+  html,
+  body {
+    -webkit-tap-highlight-color: #00000000;
+    -webkit-tap-highlight-color: transparent;
 
-h1{
-font-size: 2rem;
-margin-block: 1rem;
-    }
+    /****Forhindrer at siden zoomer når man trykker hurtigt*****/
+    touch-action: manipulation;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  margin-block: 1rem;
+}

@@ -6,9 +6,63 @@ const faq = await response.json();
 
 console.log(faq);
 ---
+<section class="faq">
 <p>FAQ</p>
 <h1>Customer Questions</h1>
-<ul>
+
 {faq.map((item) => (
-  <li>{item.question}</li>)
-)  }</ul>
+  <>
+  <button class="accordion">{item.question}</button>
+  <div class="panel" >{item.answer}</div>
+  </>)
+) 
+}  
+</section>
+
+<style>
+
+.faq{
+
+   grid-column: content;
+}
+  .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
