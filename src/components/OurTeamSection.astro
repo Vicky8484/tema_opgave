@@ -1,5 +1,30 @@
 ---
 //@ts-nocheck
+import TeamCard from "../components/TeamCard.astro";
+import Tekst from "@components/Tekst.astro";
+import Button from "@components/Button.astro";
+const { members } = Astro.props;
 ---
 
-<h1>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey</h1>
+<section class="member-section full-bleed">
+  <div class="textnbtn">
+    <Tekst
+      title="We champion the bold"
+      subtitle="Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction."
+      eyebrow="OUR TEAM"
+    />
+
+    <Button variant="dark">Meet the team</Button>
+  </div>
+
+  <div class="team-list">
+    {members.slice(0, 2).map((member) => <TeamCard {...member} />)}
+  </div>
+</section>
+
+<style>
+  .member-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+</style>

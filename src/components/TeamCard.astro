@@ -1,0 +1,58 @@
+---
+const { name, title, description, image } = Astro.props;
+---
+
+<div class="member-wrapper">
+  <article>
+    <img
+      src={image?.src}
+      alt={image?.alt || `Portræt af ${name}`}
+      width={image?.width}
+      height={image?.height}
+      loading="lazy"
+    />
+    <div>
+      <h2>{name}</h2>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  </article>
+</div>
+
+<style>
+  .member-wrapper {
+    container: member / inline-size;
+  }
+
+  article {
+    display: grid;
+    gap: 10px;
+    border-radius: 19px;
+    box-shadow: 2px 2px 4px #0000004c;
+
+    img {
+      border-radius: 19px;
+      padding: 0;
+      place-self: stretch;
+      object-fit: cover;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    @container member (width > 350px) {
+      grid-template-columns: 1fr 3fr;
+
+      img {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 19px;
+        place-self: stretch;
+        object-fit: cover;
+      }
+    }
+
+    & div {
+      padding: 5px;
+    }
+  }
+</style>

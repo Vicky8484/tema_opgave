@@ -2,9 +2,14 @@
 import Layout from "@layouts/Layout.astro";
 import TitleHero from "@components/TitleHero.astro";
 import TeamList from "@components/TeamList.astro";
+
+const response = await fetch("https://ftk-api.pages.dev/team");
+if (!response.ok) throw new Error("Kunne ikke hente teamdata");
+
+const members = await response.json();
 ---
 
 <Layout>
   <TitleHero />
-  <TeamList />
+  <TeamList members={members} />
 </Layout>
