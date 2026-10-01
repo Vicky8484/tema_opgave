@@ -78,8 +78,10 @@ box-sizing: content-box;
 .detstore-grid{
       display: grid;
  grid-template-columns: 1fr 2fr ;
-gap: 1rem;
+ grid-column: content;
 
+margin: 2rem;
+    
 
 }
 
@@ -93,14 +95,16 @@ grid-row: span 2;
     }
     
   figure {
-  margin-inline: auto;
-  max-inline-size: 300px;
+  margin: 0;
+  img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
 
   display: block;
-
-
-
-/**til start med^^ */
+/**til start med^^*/
 
   position: relative;
   isolation: isolate; 
