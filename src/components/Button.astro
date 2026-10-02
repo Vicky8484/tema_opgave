@@ -26,6 +26,24 @@ const { href, variant = "primary", ...props } = Astro.props;
     text-box: cap alphabetic;
     background: var(--color-ui-primary);
     color: contrast-color(var(--color-ui-primary));
+    transition:
+      background 0.8s ease,
+      color 0.8s ease;
+
+    /* TODO: Afled disse tokens fra --color-accent med Relative Color Syntax. */
+    --color-accent-hover: oklch(from var(--color-accent) calc(l + 0.09) c h);
+    --color-accent-active: oklch(from var(--color-accent) calc(l + 0.2) c h);
+    --color-accent-focus: oklch(from var(--color-accent) calc(l - 0.9) c h);
+
+    --color-accent-hover-white: oklch(
+      from var(--color-accent) calc(l - 0.2) c h
+    );
+    --color-accent-active-white: oklch(
+      from var(--color-accent) calc(l - 0.4) c h
+    );
+    --color-accent-focus-white: oklch(
+      from var(--color-accent) calc(l - 0.9) c h
+    );
 
     @container style(--theme: dark) {
       color: var(--color-ui-primary);
@@ -34,29 +52,77 @@ const { href, variant = "primary", ...props } = Astro.props;
   }
 
   [data-variant="accent"] {
-    background: var(--color-action);
+    --color-accent: var(--color-action);
     color: contrast-color(var(--color-action));
+    background: var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent-hover);
+    }
+
+    &:active {
+      background: var(--color-accent-active);
+    }
   }
 
   [data-variant="border"] {
     border: white solid 1px;
-    background: (var(--color-ui-primary));
+    --color-accent: (var(--color-ui-primary));
     color: contrast-color(var(--color-ui-primary));
+
+    &:hover {
+      background: white;
+      color: black;
+    }
+
+    &:active {
+      background: #e7e4e4;
+      color: black;
+    }
   }
 
   [data-variant="login"] {
-    color: var(--color-ui-primary);
-    background: contrast-color(var(--color-ui-primary));
     padding-block: 0.5rlh;
+    --color-accent: contrast-color(var(--color-ui-primary));
+    color: contrast-color(var(--color-accent));
+    background: var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent-hover-white);
+    }
+
+    &:active {
+      background: var(--color-accent-active-white);
+    }
   }
 
   [data-variant="white"] {
-    color: var(--color-ui-primary);
-    background: contrast-color(var(--color-ui-primary));
+    --color-accent: contrast-color(var(--color-ui-primary));
+    color: contrast-color(var(--color-accent));
+    background: var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent-hover-white);
+    }
+
+    &:active {
+      background: var(--color-accent-active-white);
+    }
   }
 
   [data-variant="dark"] {
-    background: var(--color-ui-primary);
     color: contrast-color(var(--color-ui-primary));
+
+    --color-accent: var(--color-ui-primary);
+    color: contrast-color(var(--color-accent));
+    background: var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent-hover);
+    }
+
+    &:active {
+      background: var(--color-accent-active);
+    }
   }
 </style>

@@ -57,8 +57,17 @@ import Button from "@components/Button.astro";
     color: contrast-color(var(--color-ui-primary));
 
     button {
-      color: var(--color-ui-primary);
-      background: contrast-color(var(--color-ui-primary));
+      --color-accent: contrast-color(var(--color-ui-primary));
+      color: contrast-color(var(--color-accent));
+      background: var(--color-accent);
+
+      &:hover {
+        background: var(--color-accent-hover-white);
+      }
+
+      &:active {
+        background: var(--color-accent-active-white);
+      }
     }
   }
 
