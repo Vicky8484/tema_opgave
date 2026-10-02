@@ -1,5 +1,6 @@
 export const Headerinfo = {
   "/about": {
+    line: `udenfade`,
     underoverskrift: `About`,
     headline: `Taxes & Efficiency`,
     description: `Our achievements
@@ -7,6 +8,7 @@ export const Headerinfo = {
      We cultivate a workplace that champions peak performance and guarantees client satisfaction.`,
   },
   "/team": {
+    line: `udenfade`,
     underoverskrift: `Team`,
     headline: `The Consultors`,
     description: `Our success stems from the synergy
@@ -14,6 +16,7 @@ export const Headerinfo = {
      We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction.`,
   },
   "/case-studies/taxes-and-efficiency": {
+    line: `hoejre udenfade`,
     underoverskrift: `CASE STUDIES`,
     headline: `Igniting Innovation`,
     description: `Our strength lies
