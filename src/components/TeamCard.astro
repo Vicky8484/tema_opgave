@@ -1,8 +1,9 @@
 ---
-const { name, title, description, image } = Astro.props;
+const { slug, name, title, description, image } = Astro.props;
+
 ---
 
-<div class="member-wrapper">
+<a href={`/team/${slug}`} class="member-wrapper">
   <article>
     <img
       src={image?.src}
@@ -17,7 +18,7 @@ const { name, title, description, image } = Astro.props;
       <p>{description}</p>
     </div>
   </article>
-</div>
+</a>
 
 <style>
   .member-wrapper {

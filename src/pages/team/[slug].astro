@@ -17,14 +17,58 @@ const { employee } = Astro.props;
 ---
 
 <Layout>
-  <Image
+  <div class="personlayout">
+  <figure>
+  <img
     src={employee.image.src}
     alt={employee.image.alt}
     width={employee.image.width}
     height={employee.image.height}
-  />
+  /></figure>
   <h2>{employee.name}</h2>
   <p>{employee.description_long}</p>
   <h3>Past Experience</h3>
   <p>{employee.past_experience}</p>
+  </div>
 </Layout>
+
+
+<style>
+
+.personlayout{
+        display: grid;
+ grid-template-columns: 1fr 1fr ;
+ grid-column: content;
+
+margin: 2rem;
+margin-block: 10rem;
+}
+  
+ figure{
+  margin: 0;
+  
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+
+  display: block;
+/**til start med^^*/
+
+  position: relative;
+  isolation: isolate; 
+  
+  &::before{
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    left: -1rem; 
+    height: 100px;
+    width: 100px;
+    background: var(--color-ui-secondary);
+    z-index: -1; 
+    border-radius: 15px;
+  }
+}
+
+</style>
