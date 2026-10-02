@@ -31,10 +31,56 @@
   --color-text-weak: var(--color-neutrals-400);
   --color-surface-highlight: var(--color-yellow-600);
   --color-on-ui-primary-muted: var(--color-neutrals-400);
-}
 
-/* ==== Spacing ==== */
+  /* SPACING */
+--section-block-spacing: 100px;
+--under-h1-spacing: 16px;
+--separate-divs-spacing: 60px;
+/* padding-inline: min(3rem, 5%); */
 
 /* ==== Typography ==== */
+  --step--1: clamp(0.89rem, 0.86rem + 0.16vw, 1rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.56rem, 1.3rem + 1.2vw, 2rem);
+
+  --space-s: clamp(0.75rem, 0.7rem + 0.2vw, 0.9rem);
+  --space-m: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  --space-l: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+
 
 /* ==== Border Radii ==== */
+
+}
+/*section {
+  --flow-space: 1em;
+  --text-strong: oklch(0.18 0 0);
+  --text: oklch(0.26 0 0);
+  --text-muted: oklch(0.48 0 0);
+
+  padding: var(--space-l, 2rem) var(--space-m, 1rem);
+
+  font-size: var(--step-0);
+  padding: var(--space-l) var(--space-m);
+
+  & :is(h1, h2, h3, h4) {
+  color: var(--text-strong);
+  font-weight: bold;
+}
+
+& p + :is(h2, h3) {
+  margin-block-start: 2em;
+}
+
+& :is(h2, h3) + :is(h3, h4) {
+  margin-block-start: .35em;
+}
+
+h1 {
+  font-size: var(--step-2);
+}
+
+p {
+  font-size: var(--step--1);
+}
+}*/
