@@ -39,7 +39,7 @@ import Button from "@components/Button.astro";
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      /* margin-top: var(--flow-space, 0.5rlh); */
+      /* margin-top: var(--flow-space, 0.5rh); */
     }
 
     .svg {
@@ -47,37 +47,24 @@ import Button from "@components/Button.astro";
       height: 40px;
       padding: 8px;
       border-radius: 100%;
+      background-color: var(--color-ui-primary);
+      color: contrast-color(var(--color-ui-primary));
     }
-  }
-
-  .coreValues[data-theme="dark"] {
-    --card-bg: contrast-color(var(--color-ui-primary));
-    --card-color: var(--color-ui-primary);
-  }
-
-  .coreValues[data-theme="light"] {
-    --card-bg: var(--color-ui-primary);
-    --card-color: contrast-color(var(--color-ui-primary));
   }
 
   [data-theme="dark"] {
     background-color: var(--color-ui-primary);
     color: contrast-color(var(--color-ui-primary));
 
-    .svg {
-      background-color: var(--color-ui-primary);
-      color: contrast-color(var(--color-ui-primary));
+    button {
+      color: var(--color-ui-primary);
+      background: contrast-color(var(--color-ui-primary));
     }
   }
 
   [data-theme="light"] {
     background-color: contrast-color(var(--color-ui-primary));
     color: var(--color-ui-primary);
-
-    .svg {
-      color: var(--color-ui-primary);
-      background: contrast-color(var(--color-ui-primary));
-    }
   }
 
   .textnbtn {
