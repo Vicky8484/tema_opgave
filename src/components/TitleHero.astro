@@ -5,12 +5,13 @@
 import {Headerinfo} from "../data/headerdata";
 const headerlink = Astro.url.pathname; 
 const pageinfo = Headerinfo[headerlink]; 
-const {underoverskrift, headline, description } = pageinfo; 
+const {underoverskrift, headline, description, line } = pageinfo; 
+
 ---
 
-<div class="full-bleed titlehero gul-linje">
+<div class="full-bleed titlehero ">
 <p>{underoverskrift}</p>
-<h1>{headline}</h1>
+<h1 class:list= {[line, "gul-linje"]}>{headline}</h1>
 <div></div>
 <p>{description}</p>
 </div>
