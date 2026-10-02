@@ -52,35 +52,3 @@
 /* ==== Border Radii ==== */
 
 }
-/*section {
-  --flow-space: 1em;
-  --text-strong: oklch(0.18 0 0);
-  --text: oklch(0.26 0 0);
-  --text-muted: oklch(0.48 0 0);
-
-  padding: var(--space-l, 2rem) var(--space-m, 1rem);
-
-  font-size: var(--step-0);
-  padding: var(--space-l) var(--space-m);
-
-  & :is(h1, h2, h3, h4) {
-  color: var(--text-strong);
-  font-weight: bold;
-}
-
-& p + :is(h2, h3) {
-  margin-block-start: 2em;
-}
-
-& :is(h2, h3) + :is(h3, h4) {
-  margin-block-start: .35em;
-}
-
-h1 {
-  font-size: var(--step-2);
-}
-
-p {
-  font-size: var(--step--1);
-}
-}*/
