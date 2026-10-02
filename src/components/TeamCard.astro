@@ -1,6 +1,7 @@
 ---
 const { slug, name, title, description, image } = Astro.props;
-
+import Insta from "@icons/instagram.svg";
+import Face from "@icons/facebook.svg";
 ---
 
 <a href={`/team/${slug}`} class="member-wrapper">
@@ -12,10 +13,14 @@ const { slug, name, title, description, image } = Astro.props;
       height={image?.height}
       loading="lazy"
     />
-    <div>
+    <div class="article-content">
       <h2>{name}</h2>
       <h3>{title}</h3>
       <p>{description}</p>
+      <div class="btnbox">
+        <Insta class="svg" />
+        <Face class="svg" />
+      </div>
     </div>
   </article>
 </a>
@@ -30,6 +35,7 @@ const { slug, name, title, description, image } = Astro.props;
     gap: 10px;
     border-radius: 19px;
     box-shadow: 2px 2px 4px #0000004c;
+    text-align: center;
 
     img {
       border-radius: 19px;
@@ -40,8 +46,22 @@ const { slug, name, title, description, image } = Astro.props;
       border-bottom-right-radius: 0;
     }
 
+    .btnbox {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      gap: 1rem;
+    }
+
     @container member (width > 350px) {
       grid-template-columns: 1fr 3fr;
+
+      .btnbox {
+        display: none;
+        background: green;
+      }
 
       img {
         border-top-right-radius: 0;
@@ -55,5 +75,9 @@ const { slug, name, title, description, image } = Astro.props;
     & div {
       padding: 5px;
     }
+  }
+
+  .article-content {
+    padding: 1rem;
   }
 </style>
