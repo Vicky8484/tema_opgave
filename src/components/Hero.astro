@@ -15,8 +15,10 @@ import Button from "@components/Button.astro";
         sustainable success.
       </p>
       <br />
-      <Button variant="accent" href="#0">Book a Meeting</Button>
-      <Button variant="border" href="#0">Learn More</Button>
+      <div class="button-box">
+        <Button variant="accent" href="#0">Book a Meeting</Button>
+        <Button variant="border" href="#0">Learn More</Button>
+      </div>
     </div>
   </div>
 
@@ -62,9 +64,15 @@ import Button from "@components/Button.astro";
         grid-row: hero-start / rohe-start;
         align-items: center;
         width: 60%;
+        margin-bottom: 3rem;
 
         > button:first-child {
           margin-right: 1rem;
+        }
+
+        .button-box {
+          display: flex;
+          gap: 1rem;
         }
       }
     }
