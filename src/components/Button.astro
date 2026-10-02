@@ -44,10 +44,15 @@ const { href, variant = "primary", ...props } = Astro.props;
     color: contrast-color(var(--color-ui-primary));
   }
 
-  [data-variant="white"] {
+  [data-variant="login"] {
     color: var(--color-ui-primary);
     background: contrast-color(var(--color-ui-primary));
     padding-block: 0.5rlh;
+  }
+
+  [data-variant="white"] {
+    color: var(--color-ui-primary);
+    background: contrast-color(var(--color-ui-primary));
   }
 
   [data-variant="dark"] {
