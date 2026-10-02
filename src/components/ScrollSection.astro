@@ -34,23 +34,20 @@ import Tekst from "@components/Tekst.astro";
 
   .scroll {
     color: white;
-    grid-column: full-start / full-end;
+    grid-column: content-start / full-end;
     display: grid;
     grid-template-columns: subgrid;
     min-width: 0;
-    overflow-x: auto;
+    overflow-inline: auto;
     overflow-y: hidden;
     scroll-snap-type: inline mandatory;
 
     .scrollBox {
-      grid-column: full-start / full-end;
       display: flex;
       flex-wrap: nowrap;
       width: max-content;
       gap: 1rem;
       padding-inline: 0;
-      scroll-padding-inline: 1rem;
-      /* overflow-inline: auto; */
       gap: 1rem;
       padding-block: 1rem;
     }

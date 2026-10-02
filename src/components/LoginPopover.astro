@@ -8,11 +8,11 @@ import Button from "@components/Button.astro";
   <form>
     <label for="email">
       Email
-      <input type="email" variant="input" />
+      <input type="email" variant="input" placeholder="Email" />
     </label>
     <label for="password">
       Password
-      <input type="password" variant="input" />
+      <input type="password" variant="input" placeholder="Password" />
     </label>
   </form>
   <Button variant="accent" popovertarget="login">Go to dashboard</Button>
@@ -58,6 +58,7 @@ import Button from "@components/Button.astro";
       align-items: center;
       border: grey solid 1px;
       margin-top: 10px;
+      padding-inline: 1rem;
     }
   }
 
