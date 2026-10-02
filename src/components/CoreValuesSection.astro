@@ -35,6 +35,15 @@ import Button from "@components/Button.astro";
     flex-direction: column;
     gap: var(--separate-divs-spacing);
 
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    .textnbtn,
+    .valueCardBox {
+      grid-column: content-start / content-end;
+    }
+
     .valueCardBox {
       display: flex;
       gap: 1rem;

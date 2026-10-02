@@ -3,9 +3,11 @@
 ---
 
 <footer class="full-bleed">
-  <h1>Ask<span>Experts</span></h1>
-  <p>© Consultalk. All rigths reserved</p>
-  <p>Terms of Service|Privacy Policy</p>
+  <div class="footer-inner">
+    <h1>Ask<span>Experts</span></h1>
+    <p>© Consultalk. All rigths reserved</p>
+    <p>Terms of Service|Privacy Policy</p>
+  </div>
 </footer>
 
 <style>
@@ -21,5 +23,15 @@
     display: flex;
     justify-content: space-between;
     padding: 15px;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full-start/full-end;
+
+    .footer-inner {
+      grid-column: content-start/content-end;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 </style>
