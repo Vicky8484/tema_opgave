@@ -13,7 +13,7 @@ import Button from "@components/Button.astro";
     <Tekst
       title="Our core values & principles"
       subtitle="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps."
-      eyebrow="Growing with our Clients"
+      eyebrow="GROWING WITH OUR CLIENTS"
     />
 
     <Button variant="dark">Join our team</Button>
@@ -30,12 +30,16 @@ import Button from "@components/Button.astro";
 
     background-color: var(--color-ui-primary);
     color: white;
-    padding-block: 3rem;
+    padding-block: var(--section-block-spacing);
+    display: flex;
+    flex-direction: column;
+    gap: var(--separate-divs-spacing);
 
     .valueCardBox {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      /* margin-top: var(--flow-space, 0.5rlh); */
     }
 
     .svg {

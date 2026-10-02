@@ -4,7 +4,7 @@ const { eyebrow, title, subtitle } = Astro.props;
 const hasActions = Astro.slots.has("actions");
 ---
 
-<div>
+<section>
   {eyebrow && <p>{eyebrow}</p>}
   <h1>{title}</h1>
   <p class="lede">{subtitle}</p>
@@ -15,4 +15,10 @@ const hasActions = Astro.slots.has("actions");
       </div>
     )
   }
-</div>
+</section>
+
+<style>
+  h1 {
+    padding-block: var(--under-h1-spacing);
+  }
+</style>

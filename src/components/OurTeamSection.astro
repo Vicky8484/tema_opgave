@@ -25,6 +25,17 @@ const { members } = Astro.props;
 <style>
   .member-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .textnbtn {
+    grid-column: 1;
+  }
+
+  .team-list {
+    grid-column: 2;
+    display: grid;
+    gap: 1rem;
   }
 </style>
