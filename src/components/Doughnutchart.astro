@@ -95,7 +95,7 @@ figure {
   place-items: center;
 
       /* Animation trigger conditions */
-  timeline-trigger: --trigger view() entry 100% exit 0%;
+  timeline-trigger: --trigger view() entry 100% exit 2%;
 
   /* Animation trigger settings */
   animation-trigger: --trigger play-forwards play-backwards;
@@ -120,6 +120,7 @@ figure::after {
      counter-reset: taeller var(--tal);
      content: counter(taeller) "%";
 animation: tael-op 2s ease-out;
+ animation-trigger: --trigger play-forwards play-backwards;
 
 }
 
