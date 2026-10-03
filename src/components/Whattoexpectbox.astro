@@ -10,15 +10,16 @@ import Checkmark from '../icons/checkmark.svg';
 <Image src= {folk} alt="Menesker der snakke sammen i en gruppe"/>
 </figure>
 <div>
-<h2>What To Expect</h2>
+  <p class="brow">WE'LL WORK WITH YOU</p>
+<h1>What To Expect</h1>
 <p>
     Our collaboration is built on transparency,
      efficiency, and measurable results.
       Together, we create strategies tailored to your unique needs and goals.
 </p>
     <ul>
-        <li><Checkmark style=" var(--color-ui-secondary)"/>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
-         <li><Checkmark style=" var(--color-ui-secondary))"/>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
+        <li><Checkmark style=" --accent: var(--color-ui-secondary)"/>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
+         <li><Checkmark style=" --accent: var(--color-ui-secondary)"/>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
     </ul>
       </div>
       </section>
@@ -29,29 +30,50 @@ import Checkmark from '../icons/checkmark.svg';
   <style>
 
 .whattoexpect-layout {
+  margin-block: 5rem; 
         display: grid;
- grid-template-columns: 1fr 2fr ;
+ grid-template-columns: 1fr 1fr ;
  grid-column: content;
-
 padding: 15px;
-     
-
   gap: 1rem;
-  > * {
-    flex: 300px;
-  }
+  align-items: start;
 
 }
 
+.brow{
+color: var(--color-text); 
+}
 
+p, li{
+  color: var(--color-text-muted); 
+}
+p{
+  max-inline-size: 50ch; 
+}
+
+svg{
+  color:var(--accent);
+  flex-shrink: 0;
+
+}
 ul{
-  list-style-type: none; 
+    gap: 2rem;
+    display: flex; /**overskriver en global regl */
+    flex-direction: column;   /**overskriver en global regl */
+    color: var(--color-text-weak);
+    padding-left: 0%;
+ 
+   li{
+display: flex;
+gap: 1rem;
+align-items: center;
+ max-inline-size: 45ch; 
+    }
 }
 
 
   figure {
   margin-inline: auto;
-  max-inline-size: 300px;
   margin: 3rem 1rem;
   display: block;
 

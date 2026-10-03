@@ -9,46 +9,102 @@ console.log(faq);
 <section class="faq">
 <p>FAQ</p>
 <h1>Customer Questions</h1>
-
+<div class="qa">
 {faq.map((item) => (
   <>
   <button class="accordion">{item.question}</button>
-  <div class="panel" >{item.answer}</div>
+  <div class="panel" ><div class="panelinner" >{item.answer}</div></div>
   </>)
 ) 
 }  
+</div>
 </section>
 
 <style>
 
 .faq{
-
+       display: flex;
+       flex-direction: column;
+margin-block: 5rem;
    grid-column: content;
+   padding: 3rem;
+   background: #0000;
+   align-items: center;
+   
 }
+
   .accordion {
-  background-color: #eee;
-  color: #444;
+  color: var(--color-text); 
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
+  border-bottom: 1px solid var(--color-neutrals-400);
   text-align: left;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
+  &::after{
+    content: "+"; 
+ 
+  }
+     .active&::after{
+      content: "-"
+    }
+  display: flex;
+  justify-content: space-between;
+
+  &.active + .panel {
+  grid-template-rows: 1fr;
 }
+
+  }
+
+
+
+.qa{
+  inline-size: 100%;
+max-width: 50%;
+margin-inline: auto; 
+
+}
+
 
 .active, .accordion:hover {
   background-color: #ccc; 
 }
 
+
+
+.panelinner{
+ margin-top: 1rem;
+ padding: 0 18px;
+ overflow: hidden;
+ min-height: 0;
+}
+
 .panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:  100ms ease-out; 
+  color: var(--color-text-muted); 
+  background-color: #0000;
   overflow: hidden;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion{
+    transition: none;
+  }
+  .panel{
+    transition: none;
+  }
+}
+
+
 </style>
+
+
 
 <script>
 var acc = document.getElementsByClassName("accordion");
@@ -57,12 +113,6 @@ var i;
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
   });
 }
 </script>

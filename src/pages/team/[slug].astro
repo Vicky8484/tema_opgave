@@ -22,7 +22,7 @@ const { employee } = Astro.props;
 
 <Layout>
   <div class="backtoteams">
-   <Knap href="/team"  variant="dark" ><Arrow></Arrow>Back to Teams</Knap>
+   <Knap href="/team"  variant="dark" ><Arrow></Arrow> Back to Team</Knap>
    </div>
   <div class="personlayout">
    
@@ -54,6 +54,12 @@ const { employee } = Astro.props;
 .backtoteams{
   grid-column: content;
 padding: 15px;  
+
+}
+.backtoteams :global(a) {
+ display: inline-flex;
+align-items: center;
+gap: 0.5rem;
 }
   .icons{
     display: flex;
