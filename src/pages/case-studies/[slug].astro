@@ -33,24 +33,26 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
           height={image.height}
         />
 
-        <div class="case-details">
-          <dl>
-            <div>
-              <dt>Case Name</dt>
-              <dd>{caseName}</dd>
-            </div>
-            <div>
-              <dt>Category</dt>
-              <dd class="category">{category}</dd>
-            </div>
-            <div>
-              <dt>Date</dt>
-              <dd class="date">{date}</dd>
-            </div>
-          </dl>
-          <Button variant="accent" href="#0" class="button"
-            >{buttonLabel}</Button
-          >
+        <div class="case-details-container">
+          <div class="case-details">
+            <dl>
+              <div>
+                <dt>Case Name</dt>
+                <dd>{caseName}</dd>
+              </div>
+              <div>
+                <dt>Category</dt>
+                <dd class="category">{category}</dd>
+              </div>
+              <div>
+                <dt>Date</dt>
+                <dd class="date">{date}</dd>
+              </div>
+            </dl>
+            <Button variant="accent" href="#0" class="button"
+              >{buttonLabel}</Button
+            >
+          </div>
         </div>
       </header>
 
@@ -108,40 +110,12 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   article {
     margin-block: var(--section-block-spacing);
   }
-  header {
-    grid-template-rows:
-      [hero-start] 3fr
-      [rohe-start] 50px
-      [hero-end] 50px
-      [rohe-end];
-  }
 
-  .case-details {
-    background: black;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    grid-column: b-start/b-end;
-    border-radius: 30px;
-    padding-block: 30px;
-    padding-inline: 2rem;
+  .case-details-container {
+    container: details / inline-size;
+    grid-column: b-start / b-end;
     grid-row: rohe-start / rohe-end;
-    align-items: center;
-
-    dl {
-      gap: 4rem;
-      display: flex;
-      justify-content: space-between;
-
-      dt {
-        font-weight: bold;
-      }
-    }
-  }
-
-  .billede1 {
-    border-radius: 30px;
-    grid-row: hero-start / hero-end;
+    min-width: 0;
   }
 
   /*GRID LOGIK*/
@@ -153,6 +127,61 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       [c-start] minmax(0, 1000px) [c-end]
       1fr [b-end]
       2fr [a-end];
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: a-start / a-end;
+    grid-template-rows:
+      [hero-start] 3fr
+      [rohe-start] 50px
+      [hero-end] auto
+      [rohe-end];
+  }
+
+  .case-details {
+    container: details / inline-size;
+    background: var(--color-ui-primary);
+    color: var(--color-surface-tertiary);
+    border-radius: var(--stor-runding);
+    padding-block: 30px;
+    padding-inline: 2rem;
+    align-items: center;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column: b-start/b-end;
+    grid-row: rohe-start / rohe-end;
+
+    dl {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      dt {
+        font-weight: bold;
+        color: var(--color-on-surface-elevated);
+      }
+    }
+
+    button {
+    }
+  }
+
+  @container details (min-width: 530px) {
+    .case-details {
+      grid-template-columns: 3fr 1fr;
+    }
+
+    .case-details dl {
+      flex-direction: row;
+    }
+  }
+
+  .billede1 {
+    border-radius: 30px;
+    grid-row: hero-start / hero-end;
   }
 
   .case-story-article > header,
@@ -197,7 +226,6 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     grid-column: a-start / a-end;
     align-self: end;
     padding: 1rem;
-    color: white;
     background: linear-gradient(rgba(0, 0, 0, 0) 10%, rgb(0 0 0 / 60%) 90%);
     z-index: 1;
   }
@@ -208,35 +236,13 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 
   /**tekst styling **/
   section {
-    --flow-space: 1em;
-    --text-strong: oklch(0.18 0 0);
-    --text: oklch(0.26 0 0);
-    --text-muted: oklch(0.48 0 0);
-
-    padding: var(--space-l, 2rem) var(--space-m, 1rem);
-
-    font-size: var(--step-0);
-    padding: var(--space-l) var(--space-m);
-
-    & :is(h1, h2, h3, h4) {
-      color: var(--text-strong);
-      font-weight: bold;
+    p,
+    li {
+      color: var(--text-muted);
     }
 
-    & p + :is(h2, h3) {
-      margin-block-start: 2em;
-    }
-
-    & :is(h2, h3) + :is(h3, h4) {
-      margin-block-start: 0.35em;
-    }
-
-    h1 {
-      font-size: var(--step-2);
-    }
-
-    p {
-      font-size: var(--step--1);
+    figcaption p {
+      color: contrast-color(var(--text-strong));
     }
   }
 </style>

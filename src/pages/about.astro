@@ -12,10 +12,8 @@ const members = await response.json();
 ---
 
 <Layout>
-   <TitleHero />
   <main>
-    <h1>About us</h1>
-   
+    <TitleHero />
     <OurVision />
     <CoreValues theme="light" />
     <OurTeam members={members} />
