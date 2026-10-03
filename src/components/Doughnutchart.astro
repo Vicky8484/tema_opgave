@@ -210,7 +210,20 @@ figcaption {
   margin-block-start: 0.75rem;
 }
 
-
+@media (prefers-reduced-motion: reduce) {
+  .marker{
+    animation: none;
+    animation-trigger: none; 
+  }
+  .progress{
+    animation: none;
+    animation-trigger: none; 
+  }
+  figure::after{
+    animation: none;
+    animation-trigger: none; 
+  }
+}
 
   </style>
 
