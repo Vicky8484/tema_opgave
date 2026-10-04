@@ -35,7 +35,9 @@ const Icon = icons[iconName];
     background: var(--color-surface-tertiary);
     color: var(--color-text);
     border-radius: 20px;
-    padding: 1rem;
+    padding: var(--space-s);
+    display: flex;
+    flex-direction: column;
 
     flex: 0 0 300px;
     transition:
@@ -43,12 +45,17 @@ const Icon = icons[iconName];
       color 2s ease;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    padding: 1.5rem 1rem;
-    border-radius: 0.5rem;
+    padding: var(--space-m) var(--space-s);
+    border-radius: var(--btn-border-radius);
     cursor: pointer;
 
     svg {
-      color: black;
+      color: var(--color-text);
+    }
+
+    p,
+    h2 {
+      padding-top: var(--space-s);
     }
   }
 </style>

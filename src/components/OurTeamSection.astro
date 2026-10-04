@@ -24,6 +24,7 @@ const { members } = Astro.props;
 
 <style>
   .member-section {
+    padding-block: var(--section-block-spacing);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
@@ -31,11 +32,28 @@ const { members } = Astro.props;
 
   .textnbtn {
     grid-column: 1;
+
+    button {
+      margin-top: var(--space-s);
+    }
   }
 
   .team-list {
     grid-column: 2;
     display: grid;
     gap: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .member-section {
+      padding-block: var(--section-block-spacing);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .team-list {
+        grid-column: 1;
+      }
+    }
   }
 </style>

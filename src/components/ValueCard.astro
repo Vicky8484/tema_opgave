@@ -26,15 +26,21 @@ const Icon = icons[iconName];
 
 <style>
   article {
+    display: flex;
+    flex-direction: column;
     background: var(--card-bg);
     color: var(--card-color);
     border-radius: var(--btn-border-radius);
-    padding: 1rem;
+    padding: var(--space-m) var(--space-s);
 
     flex: 250px;
     flex-wrap: wrap;
-    padding: 1.5rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--btn-border-radius);
     cursor: pointer;
+
+    p,
+    h2 {
+      padding-top: var(--space-s);
+    }
   }
 </style>

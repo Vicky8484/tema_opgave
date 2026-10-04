@@ -32,13 +32,12 @@ import Face from "@icons/facebook.svg";
 
   article {
     display: grid;
-    gap: 10px;
-    border-radius: 19px;
+    border-radius: var(--btn-border-radius);
     box-shadow: 2px 2px 4px #0000004c;
     text-align: center;
 
     img {
-      border-radius: 19px;
+      border-radius: var(--btn-border-radius);
       padding: 0;
       place-self: stretch;
       object-fit: cover;
@@ -47,12 +46,12 @@ import Face from "@icons/facebook.svg";
     }
 
     .btnbox {
+      padding-top: var(--space-l);
       display: flex;
       flex-wrap: wrap;
       margin: 0;
-      padding: 0;
       justify-content: center;
-      gap: 1rem;
+      gap: var(--space-s);
     }
 
     @container member (width > 350px) {
@@ -66,18 +65,14 @@ import Face from "@icons/facebook.svg";
       img {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom-left-radius: 19px;
+        border-bottom-left-radius: var(--btn-border-radius);
         place-self: stretch;
         object-fit: cover;
       }
     }
-
-    & div {
-      padding: 5px;
-    }
   }
 
   .article-content {
-    padding: 1rem;
+    padding: var(--space-s);
   }
 </style>

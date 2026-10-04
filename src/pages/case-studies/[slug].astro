@@ -20,10 +20,8 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 ---
 
 <Layout>
-   <TitleHero />
+  <TitleHero />
   <main>
-   
-
     <article class="case-story-article">
       <header>
         <Image
@@ -50,9 +48,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
                 <dd class="date">{date}</dd>
               </div>
             </dl>
-            <Button variant="accent" href="#0" class="button"
-              >{buttonLabel}</Button
-            >
+            <Button variant="accent" class="button">{buttonLabel}</Button>
           </div>
         </div>
       </header>
@@ -112,6 +108,10 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     margin-block: var(--section-block-spacing);
   }
 
+  article > * + * {
+    margin-block-start: var(--flow-space);
+  }
+
   .case-details-container {
     container: details / inline-size;
     grid-column: b-start / b-end;
@@ -139,6 +139,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       [rohe-start] 50px
       [hero-end] auto
       [rohe-end];
+    /* margin-bottom: var(--space-l); */
   }
 
   .case-details {
@@ -154,10 +155,13 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     grid-template-columns: 1fr;
     grid-column: b-start/b-end;
     grid-row: rohe-start / rohe-end;
+    text-align: center;
+    gap: var(--space-l);
 
     dl {
       display: flex;
       flex-direction: column;
+      gap: var(--space-l);
       justify-content: space-between;
 
       dt {
@@ -167,16 +171,26 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     }
 
     button {
+      justify-self: center;
+      width: max-content;
+      padding-block: 0.5rlh;
+      display: flex;
     }
   }
 
   @container details (min-width: 530px) {
     .case-details {
       grid-template-columns: 3fr 1fr;
+      gap: 0;
+      text-align: left;
     }
 
     .case-details dl {
       flex-direction: row;
+    }
+
+    button {
+      justify-self: end;
     }
   }
 
@@ -245,5 +259,9 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     figcaption p {
       color: contrast-color(var(--text-strong));
     }
+  }
+
+  figure {
+    margin-block: var(--space-l);
   }
 </style>
