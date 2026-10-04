@@ -23,6 +23,7 @@
     display: flex;
     justify-content: space-between;
     padding-block: var(--section-block-spacing);
+    padding: 15px;
     display: grid;
     grid-template-columns: subgrid;
     grid-column: full-start/full-end;
@@ -40,4 +41,15 @@
       gap: var(--space-l);
     }
   }
+  @media (max-width: 400px){
+ footer{
+.footer-inner{
+display: grid;
+grid-template-columns: 1fr;
+gap: 1rem;
+text-align: center;
+ }
+ }
+  
+}
 </style>

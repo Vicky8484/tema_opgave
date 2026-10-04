@@ -81,15 +81,17 @@ margin-inline: auto;
  padding: 0 18px;
  overflow: hidden;
  min-height: 0;
+
 }
 
 .panel {
   display: grid;
   grid-template-rows: 0fr;
-  transition:  100ms ease-out; 
+  transition: grid-template-rows 300ms ease-out; 
   color: var(--color-text-muted); 
   background-color: #0000;
   overflow: hidden;
+ 
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -98,6 +100,14 @@ margin-inline: auto;
   }
   .panel{
     transition: none;
+  }
+}
+
+@media (max-width: 400px){
+  .faq{
+    padding:1rem;}
+  .qa{
+    max-width: 100%;
   }
 }
 
