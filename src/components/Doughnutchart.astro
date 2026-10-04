@@ -190,10 +190,6 @@ svg {
      pathLength="100", så --value-number bestemmer ringens længde. */
 }
 
-
-
-
-
 .marker {
   /* Markøren vises først, når du arbejder med trin 4. */
   visibility: visible;
@@ -223,6 +219,21 @@ figcaption {
     animation: none;
     animation-trigger: none; 
   }
+}
+
+ @media (max-width: 400px){
+.tekst-grafer{
+ grid-template-columns: 1fr;
+ }
+
+ figure{
+  margin-top: 1rem;
+flex-wrap: wrap;
+ }
+ .stat-list{
+  margin-left: 0%;
+ }
+
 }
 
   </style>
