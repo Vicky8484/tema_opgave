@@ -8,11 +8,6 @@ import Button from "@components/Button.astro";
   <div class="header-inner">
     <a href="../"><h1>Ask<span>Experts</span></h1></a>
 
-    <button
-      id="mobileMenuBtn"
-      aria-label="Open navigation menu"
-      aria-expanded="false">☰</button
-    >
     <nav id="mainNavigation">
       <ul>
         <li><a href="../">Home</a></li>
@@ -21,10 +16,18 @@ import Button from "@components/Button.astro";
         <li><a href="../about">About</a></li>
       </ul>
     </nav>
-    <Button variant="login" class="login-trigger" popovertarget="login"
-      >Login</Button
-    >
-    <LoginPopover />
+    <div class="burger-login">
+      <button
+        id="mobileMenuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false">☰</button
+      >
+
+      <Button variant="login" class="login-trigger" popovertarget="login"
+        >Login</Button
+      >
+      <LoginPopover />
+    </div>
   </div>
 </header>
 
@@ -81,5 +84,10 @@ import Button from "@components/Button.astro";
         }
       }
     }
+  }
+
+  .burger-login {
+    display: flex;
+    gap: var(--space-m);
   }
 </style>

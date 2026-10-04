@@ -30,7 +30,6 @@ import Button from "@components/Button.astro";
 </section>
 
 <style>
-  /* Styles her */
   .hero {
     display: grid;
     grid-template-columns: subgrid;
@@ -54,9 +53,7 @@ import Button from "@components/Button.astro";
       button {
         background: var(--color-surface-primary);
         border: none;
-        border-radius: 30px;
-        padding-inline: 1.5rem;
-        padding-block: 0.5rem;
+        border-radius: var(--btn-border-radius);
       }
 
       .inner-content {
@@ -64,16 +61,20 @@ import Button from "@components/Button.astro";
         grid-row: hero-start / rohe-start;
         align-items: center;
         width: 60%;
-        margin-bottom: 3rem;
+        margin-bottom: var(--space-l);
 
         > button:first-child {
-          margin-right: 1rem;
+          margin-right: var(--space-s);
         }
 
         .button-box {
           display: flex;
-          gap: 1rem;
+          gap: var(--space-s);
         }
+      }
+
+      h1 {
+        color: var(--color-on-ui-primary);
       }
     }
 
@@ -88,6 +89,37 @@ import Button from "@components/Button.astro";
     .services-grid-item {
       grid-column: content-start / content-end;
       grid-row: rohe-start / rohe-end;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .hero {
+      grid-template-rows: none;
+    }
+
+    .hero .hero-content,
+    .hero .services-grid-item,
+    .hero .hero-content .inner-content {
+      grid-row: auto;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero .hero-content {
+      grid-column: full-start / full-end;
+      padding-block: var(--space-l);
+      width: 100%;
+    }
+
+    .hero .hero-content .inner-content {
+      grid-column: content-start / content-end;
+      width: 100%;
+    }
+
+    .services-grid-item {
+      padding-top: var(--space-s);
     }
   }
 </style>

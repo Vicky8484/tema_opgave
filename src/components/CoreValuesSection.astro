@@ -25,11 +25,12 @@ import Button from "@components/Button.astro";
 
 <style>
   .coreValues {
+    padding-block: var(--section-block-spacing);
     --card-bg: var(--color-surface-tertiary);
     --card-color: var(--color-text);
 
     background-color: var(--color-ui-primary);
-    color: white;
+    color: contrast-color(var(--color-ui-primary))
     padding-block: var(--section-block-spacing);
     display: flex;
     flex-direction: column;
@@ -46,9 +47,9 @@ import Button from "@components/Button.astro";
 
     .valueCardBox {
       display: flex;
-      gap: 1rem;
+      gap: var(--space-s);
       flex-wrap: wrap;
-      /* margin-top: var(--flow-space, 0.5rh); */
+      margin-top: var(--space-s);
     }
 
     .svg {
@@ -78,6 +79,10 @@ import Button from "@components/Button.astro";
         background: var(--color-accent-active-white);
       }
     }
+
+    h1 {
+      color: contrast-color(var(--color-ui-primary));
+    }
   }
 
   [data-theme="light"] {
@@ -89,12 +94,25 @@ import Button from "@components/Button.astro";
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: end;
-    gap: 1rem;
+    gap: var(--space-s);
   }
 
   button {
     justify-self: end;
     width: max-content;
     white-space: nowrap;
+  }
+
+  @media (max-width: 800px) {
+    .textnbtn {
+      grid-template-columns: 1fr;
+
+      > button {
+        justify-self: start;
+        width: max-content;
+        display: flex;
+        gap: var(--space-s);
+      }
+    }
   }
 </style>

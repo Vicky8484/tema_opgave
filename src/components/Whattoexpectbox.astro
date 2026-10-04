@@ -1,109 +1,108 @@
 ---
-import { Image } from 'astro:assets';
-import folk from '../data/images/folkdersnakkeigruppe.jpg';
+import { Image } from "astro:assets";
+import folk from "../data/images/folkdersnakkeigruppe.jpg";
 //@ts-nocheck
-import Checkmark from '../icons/checkmark.svg'; 
+import Checkmark from "../icons/checkmark.svg";
 ---
 
 <section class="whattoexpect-layout">
-<figure>
-<Image src= {folk} alt="Menesker der snakke sammen i en gruppe"/>
-</figure>
-<div>
-  <p class="brow">WE'LL WORK WITH YOU</p>
-<h1>What To Expect</h1>
-<p>
-    Our collaboration is built on transparency,
-     efficiency, and measurable results.
-      Together, we create strategies tailored to your unique needs and goals.
-</p>
+  <figure>
+    <Image src={folk} alt="Menesker der snakke sammen i en gruppe" />
+  </figure>
+  <div>
+    <p class="brow">WE'LL WORK WITH YOU</p>
+    <h1>What To Expect</h1>
+    <p>
+      Our collaboration is built on transparency, efficiency, and measurable
+      results. Together, we create strategies tailored to your unique needs and
+      goals.
+    </p>
     <ul>
-        <li><Checkmark style=" --accent: var(--color-ui-secondary)"/>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
-         <li><Checkmark style=" --accent: var(--color-ui-secondary)"/>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
+      <li>
+        <Checkmark style=" --accent: var(--color-ui-secondary)" />Collaborate to
+        build actionable strategies that drive sustainable growth and deliver
+        tangible outcomes.
+      </li>
+      <li>
+        <Checkmark style=" --accent: var(--color-ui-secondary)" />Identify
+        opportunities to optimize processes and implement impactful solutions
+        with measurable results.
+      </li>
     </ul>
-      </div>
-      </section>
+  </div>
+</section>
 
+<style>
+  .whattoexpect-layout {
+    margin-block: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: content;
+    padding: 15px;
+    gap: 1rem;
+    align-items: start;
+  }
 
+  .brow {
+    color: var(--color-text);
+  }
 
-      
-  <style>
+  p,
+  li {
+    color: var(--color-text-muted);
+  }
+  p {
+    max-inline-size: 50ch;
+  }
 
-.whattoexpect-layout {
-  margin-block: 5rem; 
-        display: grid;
- grid-template-columns: 1fr 1fr ;
- grid-column: content;
-padding: 15px;
-  gap: 1rem;
-  align-items: start;
-
-}
-
-.brow{
-color: var(--color-text); 
-}
-
-p, li{
-  color: var(--color-text-muted); 
-}
-p{
-  max-inline-size: 50ch; 
-}
-
-svg{
-  color:var(--accent);
-  flex-shrink: 0;
-
-}
-ul{
+  svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  ul {
     gap: 2rem;
     display: flex; /**overskriver en global regl */
-    flex-direction: column;   /**overskriver en global regl */
+    flex-direction: column; /**overskriver en global regl */
     color: var(--color-text-weak);
     padding-left: 0%;
- 
-   li{
-display: flex;
-gap: 1rem;
-align-items: center;
- max-inline-size: 45ch; 
-    }
-}
 
+    li {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      max-inline-size: 45ch;
+    }
+  }
 
   figure {
-  margin-inline: auto;
-  margin: 3rem 1rem;
-  display: block;
+    margin-inline: auto;
+    margin: 3rem 1rem;
+    display: block;
 
- img{
-    border-radius: 15px; 
-   
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
+    img {
+      border-radius: 15px;
 
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+
+    /**til start med^^ */
+
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      height: 100px;
+      width: 100px;
+      background: var(--color-ui-secondary);
+      z-index: -1;
+      border-radius: 15px;
+    }
   }
-  
-
-
-/**til start med^^ */
-
-  position: relative;
-  isolation: isolate; 
-  
-  &::before{
-    content: "";
-    position: absolute;
-    top: -1rem;
-    left: -1rem; 
-    height: 100px;
-    width: 100px;
-    background: var(--color-ui-secondary);
-    z-index: -1; 
-    border-radius: 15px;
-  }
-}
 </style>
