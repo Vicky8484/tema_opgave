@@ -25,16 +25,14 @@ import Button from "@components/Button.astro";
     padding: var(--space-s);
 
     border-radius: var(--btn-border-radius);
-    position: absolute;
-    position-anchor: --trigger;
-    position-area: bottom;
+    position: fixed;
+    position-anchor: --login-trigger;
     inset: auto;
     top: anchor(bottom);
     right: anchor(right);
-    top: var(--space-s);
+    margin: var(--space-s) 0 0;
     box-shadow: #00000069 5px 5px 5px;
     border: none;
-    margin: 0;
     color: var(--color-text);
 
     h1 {
