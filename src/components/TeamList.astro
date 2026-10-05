@@ -42,4 +42,21 @@ const { members } = Astro.props;
     gap: 1rem;
     padding-block: 1rem;
   }
+
+  .member-section {
+    margin-block: var(--section-block-spacing);
+  }
+
+  @media (max-width: 800px) {
+    .textnbtn {
+      grid-template-columns: 1fr;
+
+      > button {
+        justify-self: start;
+        width: max-content;
+        display: flex;
+        gap: var(--space-s);
+      }
+    }
+  }
 </style>

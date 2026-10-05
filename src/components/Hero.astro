@@ -35,11 +35,7 @@ import Button from "@components/Button.astro";
     grid-template-columns: subgrid;
     grid-column: full-start / full-end;
 
-    grid-template-rows:
-      [hero-start] 3fr
-      [rohe-start] 1fr
-      [hero-end] 1fr
-      [rohe-end];
+    grid-template-rows: minmax(32rem, auto) auto;
 
     .hero-content {
       background-color: var(--color-ui-primary);
@@ -48,7 +44,8 @@ import Button from "@components/Button.astro";
       grid-template-columns: subgrid;
       grid-column: full-start / center;
       display: grid;
-      grid-row: hero-start / hero-end;
+      grid-row: 1;
+      padding-bottom: 8rem;
 
       button {
         background: var(--color-surface-primary);
@@ -58,10 +55,10 @@ import Button from "@components/Button.astro";
 
       .inner-content {
         grid-column: content-start / center;
-        grid-row: hero-start / rohe-start;
+        grid-row: 1;
         align-items: center;
         width: 60%;
-        margin-bottom: var(--space-l);
+        margin-top: 5rem;
 
         > button:first-child {
           margin-right: var(--space-s);
@@ -80,7 +77,7 @@ import Button from "@components/Button.astro";
 
     .hero-image {
       grid-column: center / full-end;
-      grid-row: hero-start / hero-end;
+      grid-row: 1;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -88,19 +85,26 @@ import Button from "@components/Button.astro";
 
     .services-grid-item {
       grid-column: content-start / content-end;
-      grid-row: rohe-start / rohe-end;
+      grid-row: 2;
+      margin-top: -8rem;
+      position: relative;
+      z-index: 1;
     }
   }
 
   @media (max-width: 800px) {
     .hero {
-      grid-template-rows: none;
+      grid-template-rows: auto auto;
     }
 
-    .hero .hero-content,
-    .hero .services-grid-item,
+    .hero .hero-content {
+      grid-row: 1;
+      padding-bottom: var(--space-l);
+    }
+
     .hero .hero-content .inner-content {
       grid-row: auto;
+      margin-top: var(--space-l);
     }
 
     .hero-image {
@@ -109,7 +113,6 @@ import Button from "@components/Button.astro";
 
     .hero .hero-content {
       grid-column: full-start / full-end;
-      padding-block: var(--space-l);
       width: 100%;
     }
 
@@ -118,8 +121,11 @@ import Button from "@components/Button.astro";
       width: 100%;
     }
 
-    .services-grid-item {
+    .hero .services-grid-item {
+      grid-row: 2;
+      margin-top: 0;
       padding-top: var(--space-s);
+      margin-bottom: var(--section-block-spacing);
     }
   }
 </style>
