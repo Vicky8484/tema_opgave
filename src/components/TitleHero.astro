@@ -4,7 +4,12 @@
 import { Headerinfo } from "../data/headerdata";
 const headerlink = Astro.url.pathname;
 const pageinfo = Headerinfo[headerlink];
-const { underoverskrift, headline, description, line } = pageinfo;
+const {
+  underoverskrift = "",
+  headline = "",
+  description = "",
+  line = false,
+} = pageinfo || {};
 ---
 
 <div class="full-bleed titlehero">
