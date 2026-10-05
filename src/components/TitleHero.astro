@@ -2,8 +2,25 @@
 //@ts-nocheck
 
 import { Headerinfo } from "../data/headerdata";
-const headerlink = Astro.url.pathname;
-const pageinfo = Headerinfo[headerlink];
+// const headerlink = Astro.url.pathname;
+// const pageinfo = Headerinfo[headerlink];
+// const {
+//   underoverskrift = "",
+//   headline = "",
+//   description = "",
+//   line = false,
+// } = pageinfo || {};
+
+const { variant } = Astro.props;
+
+// 1. Hent stien og sørg for, at den altid er ens (f.eks. fjerner skråstreg til sidst)
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+// 2. Slå op i jeres data ved at tjekke både med og uden skråstreg
+const pageinfo =
+  Headerinfo[currentPath] || Headerinfo[currentPath + "/"] || Headerinfo["/"];
+
+// 3. Vores fejlsikre fallback (behold denne)
 const {
   underoverskrift = "",
   headline = "",
