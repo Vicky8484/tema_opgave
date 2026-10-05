@@ -150,9 +150,7 @@ const { title, subtitle, eyebrow, stats } = Doughnut;
     /* TODO 3: Placér SVG'en i "stack". */
   }
 
-  .track {
-    stroke: var(--color-neutrals-200);
-  }
+  
 
   .track,
   .progress {
@@ -164,6 +162,10 @@ const { title, subtitle, eyebrow, stats } = Doughnut;
     stroke: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);
     --l: -0.1;
     stroke-width: var(--stroke-width);
+  }
+
+  .track {
+    stroke: oklch(from var(--color-yellow-500) calc(l - 0.25) c h);
   }
 
   .progress {
