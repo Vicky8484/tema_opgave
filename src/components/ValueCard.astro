@@ -1,0 +1,46 @@
+---
+//@ts-nocheck
+import Layers from "../icons/layers.svg";
+import Bars from "../icons/bars.svg";
+import Globe from "../icons/globe.svg";
+import Gear from "../icons/gear.svg";
+const { value } = Astro.props;
+
+const icons = {
+  layers: Layers,
+  bars: Bars,
+  globe: Globe,
+  gear: Gear,
+};
+
+const iconName = value.icon?.toLowerCase().replace(/\.svg$/, "");
+const Icon = icons[iconName];
+---
+
+<article>
+  {Icon && <Icon aria-hidden="true" class="svg" />}
+  <br />
+  <h2>{value.title}</h2>
+  <p>{value.description}</p>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    color: var(--card-color);
+    border-radius: var(--btn-border-radius);
+    padding: var(--space-m) var(--space-s);
+
+    flex: 250px;
+    flex-wrap: wrap;
+    border-radius: var(--btn-border-radius);
+    cursor: pointer;
+
+    p,
+    h2 {
+      padding-top: var(--space-s);
+    }
+  }
+</style>

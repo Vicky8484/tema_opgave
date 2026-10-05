@@ -3,6 +3,10 @@
 import { getTeamMembers } from "@lib/api";
 import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
+import Insta from "@icons/instagram.svg"; 
+import Face from "@icons/facebook.svg"
+import Arrow from "@icons/arrow-left.svg"
+import Knap from '@components/Button.astro'; 
 
 export async function getStaticPaths() {
   const team = await getTeamMembers();
@@ -17,14 +21,116 @@ const { employee } = Astro.props;
 ---
 
 <Layout>
-  <Image
+  <div class="backtoteams">
+   <Knap href="/team"  variant="dark" ><Arrow></Arrow> Back to Team</Knap>
+   </div>
+  <div class="personlayout">
+   
+  <figure>
+    
+  <img
     src={employee.image.src}
     alt={employee.image.alt}
     width={employee.image.width}
     height={employee.image.height}
-  />
-  <h2>{employee.name}</h2>
+/>   <div class="icons">
+<Insta> </Insta>
+<Face> </Face></div>
+  </figure>
+  <div class="tekst">
+  <h1>{employee.name}</h1>
+  <h2>{employee.title}</h2>
   <p>{employee.description_long}</p>
+ <hr>
   <h3>Past Experience</h3>
   <p>{employee.past_experience}</p>
+  </div>
+  </div>
 </Layout>
+
+
+<style>
+  
+.backtoteams{
+  grid-column: content;
+padding: 15px;  
+
+}
+.backtoteams :global(a) {
+ display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+}
+  .icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  hr{
+    border-color: var(--color-text-weak);
+    margin-block: 2rem;
+  }
+  p{
+    color: var(--color-text-muted);
+  }
+
+.personlayout{
+        display: grid;
+ grid-template-columns: 1fr 1fr ;
+ grid-column: content;
+gap: 4rem; 
+margin: 2rem;
+margin-block: 10rem;
+}
+  
+ figure{
+  margin: 0;
+
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+img{
+  border-radius: 15px;
+    display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+    margin-bottom: 1rem; 
+}
+  display: block;
+/**til start med^^*/
+
+  position: relative;
+  isolation: isolate; 
+  
+  &::before{
+    content: "";
+    position: absolute;
+    top: -1rem;
+    left: -1rem; 
+    height: 100px;
+    width: 100px;
+    background: var(--color-ui-secondary);
+    z-index: -1; 
+    border-radius: 15px;
+  }
+}
+h2{
+  margin-bottom: 2rem;
+  color: var(--color-text-muted)
+}
+
+h3{
+  font-size: 2rem;
+  margin-block: 0;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 500px){
+  .personlayout{ grid-template-columns: 1fr;}
+  
+}
+</style>

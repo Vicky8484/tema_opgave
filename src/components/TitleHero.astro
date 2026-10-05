@@ -1,0 +1,32 @@
+---
+//@ts-nocheck
+
+import { Headerinfo } from "../data/headerdata";
+const headerlink = Astro.url.pathname;
+const pageinfo = Headerinfo[headerlink];
+const { underoverskrift, headline, description, line } = pageinfo;
+---
+
+<div class="full-bleed titlehero">
+  <p>{underoverskrift}</p>
+  <h1 class:list={[line, "gul-linje"]}>{headline}</h1>
+  <div></div>
+  <p>{description}</p>
+</div>
+
+<style>
+  .titlehero {
+    text-align: center;
+
+    padding: 6%;
+    p {
+      margin-top: 2rem;
+      color: var(--color-text-muted);
+      max-width: 64ch;
+      margin-inline: auto;
+    }
+  }
+  .full-bleed {
+    background: var(--color-surface-secondary);
+  }
+</style>

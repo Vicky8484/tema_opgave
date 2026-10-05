@@ -1,0 +1,61 @@
+---
+//@ts-nocheck
+import Cal from "../icons/cal.svg";
+import Card from "../icons/card.svg";
+import Law from "../icons/law.svg";
+import Money from "../icons/money.svg";
+import Gear from "../icons/gear.svg";
+import Bars from "../icons/bars.svg";
+import Clock from "../icons/clock.svg";
+const { scroll } = Astro.props;
+
+const icons = {
+  cal: Cal,
+  card: Card,
+  law: Law,
+  money: Money,
+  gear: Gear,
+  bars: Bars,
+  clock: Clock,
+};
+
+const iconName = scroll.icon?.toLowerCase().replace(/\.svg$/, "");
+const Icon = icons[iconName];
+---
+
+<article>
+  {Icon && <Icon aria-hidden="true" />}
+  <br />
+  <h2>{scroll.title}</h2>
+  <p>{scroll.description}</p>
+</article>
+
+<style>
+  article {
+    background: var(--color-surface-tertiary);
+    color: var(--color-text);
+    border-radius: 20px;
+    padding: var(--space-s);
+    display: flex;
+    flex-direction: column;
+
+    flex: 0 0 300px;
+    transition:
+      background 1s ease,
+      color 2s ease;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: var(--space-m) var(--space-s);
+    border-radius: var(--btn-border-radius);
+    cursor: pointer;
+
+    svg {
+      color: var(--color-text);
+    }
+
+    p,
+    h2 {
+      padding-top: var(--space-s);
+    }
+  }
+</style>

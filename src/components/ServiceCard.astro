@@ -7,26 +7,46 @@ import ArrowRight from "@icons/arrow--right.svg";
   <h2>{service.title}</h2>
   <p>{service.description}</p>
   <a href="#0">{service.buttonText} <ArrowRight stroke-width={2.5} /></a>
-  <!-- <a> burde måske være en variant af en component -->
 </article>
 
 <style>
   @layer components {
     article {
+      color: var(--color-on-ui-primary);
       background: var(--color-blue-700-transparent);
       color: var(--color-on-surface-elevated);
-      padding: 2rem; /* Dette burde være en token */
-      border-radius: 20px; /* Dette burde være en token */
+      padding: var(--space-m);
+      border-radius: var(--btn-border-radius);
+      height: 100%;
+
+      p {
+        margin-block: var(--space-s);
+      }
+
     }
+
     a {
+      --color-accent-hover: oklch(from var(--color-accent) calc(l + 0.09) c h);
+      --color-accent: var(--color-action);
+
       display: inline flex;
       gap: 1ch;
-      color: var(--color-action);
+      color: var(--color-accent);
       font-weight: bold;
+      justify-self: end;
 
       svg {
         inline-size: 16px;
       }
+
+      &:hover {
+        color: var(--color-accent-hover);
+      }
     }
+  }
+
+  h2 {
+    font-weight: bold;
+    color: var(--color-on-ui-primary);
   }
 </style>

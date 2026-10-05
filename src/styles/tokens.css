@@ -1,18 +1,18 @@
 :root {
   /* ==== Colors ==== */
   /* PRIMITIVES */
-  --color-yellow-500: #ffcc4a;
-  --color-green-400: #a4eda4;
-  --color-neutrals-50: #f9fafb;
-  --color-neutrals-200: #eaedf1;
-  --color-neutrals-900: #030712;
-  --color-neutrals-700: #5a606f;
-  --color-blue-700: #101828;
-  --color-blue-700-transparent: rgba(16 24 40 / 0.9);
-  --color-green-600: #4bb84b;
-  --color-neutrals-100: #f9fafb;
-  --color-neutrals-400: #99a1af;
-  --color-yellow-600: #fbc336;
+  --color-yellow-500: oklch(86.802% 0.15245 86.736);
+  --color-green-400: oklch(87.98% 0.12284 144.481);
+  --color-neutrals-50: oklch(98.463% 0.00181 249.248);
+  --color-neutrals-200: oklch(94.496% 0.00638 255.744);
+  --color-neutrals-900: oklch(12.964% 0.02739 261.707);
+  --color-neutrals-700: oklch(48.929% 0.02523 268.183);
+  --color-blue-700: oklch(20.992% 0.03416 263.451);
+  --color-blue-700-transparent: oklch(20.992% 0.03416 263.451 / 0.9);
+  --color-green-600: oklch(69.555% 0.179 143.371);
+  --color-neutrals-100: oklch(98.463% 0.00181 249.248);
+  --color-neutrals-400: oklch(70.708% 0.02244 261.79);
+  --color-yellow-600: oklch(84.534% 0.15855 85.306);
 
   /* TOKENS */
   --color-action: var(--color-yellow-500);
@@ -31,10 +31,33 @@
   --color-text-weak: var(--color-neutrals-400);
   --color-surface-highlight: var(--color-yellow-600);
   --color-on-ui-primary-muted: var(--color-neutrals-400);
-}
 
-/* ==== Spacing ==== */
+  /* SPACING */
+
+  /*til padding, margin og gap på elementer*/
+  --space-s: clamp(0.75rem, 0.7rem + 0.2vw, 0.9rem);
+  --space-m: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  --space-l: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+
+/*til padding-block på hele sektioner, så der er lige meget plads mellem dem*/
+  --section-block-spacing: clamp(3rem, 2.5rem + 2vw, 5rem);
 
 /* ==== Typography ==== */
+line-height: 1.6;
+
+  --step--1: clamp(0.89rem, 0.86rem + 0.16vw, 1rem); /*til p'er, a'er og buttons*/
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem); /*alt andet*/
+  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.5rem); /*h3 størrelse*/
+  --step-2: clamp(1.56rem, 1.3rem + 1.2vw, 2rem); /*h1 størrelse*/
+
+   --flow-space: var(--space-l);
+    --text-strong: var(--color-text);
+    --text: var(--color-blue-700);
+    --text-muted: var(--color-text-muted);
 
 /* ==== Border Radii ==== */
+--btn-border-radius: clamp(0.875rem, 0.7rem + 0.5vw, 1.25rem); /*til knapper og kasser*/
+--stor-runding: clamp(1rem, 0.8rem + 0.8vw, 1.875rem); /*til større billeder eller bokse som skal have runding*/
+
+}
+

@@ -1,10 +1,24 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import TitleHero from "@components/TitleHero.astro";
+import OurVision from "@components/OurVisionSection.astro";
+import CoreValues from "@components/CoreValuesSection.astro";
+import OurTeam from "@components/OurTeamSection.astro";
+import FAQ from "@components/FAQSection.astro";
+import OurVisionNumbers from "@components/OurVisionNumbers.astro";
+
+const response = await fetch("https://ftk-api.pages.dev/team");
+if (!response.ok) throw new Error("Kunne ikke hente teamdata");
+const members = await response.json();
 ---
 
 <Layout>
+    <TitleHero />
   <main>
-    <h1>About us</h1>
-    <!-- Byg sidens sektioner her med udgangspunkt i Figma-designet. -->
+    <OurVision />
+    <OurVisionNumbers />
+    <CoreValues theme="light" />
+    <OurTeam members={members} />
+    <FAQ />
   </main>
 </Layout>

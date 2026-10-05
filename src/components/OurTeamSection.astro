@@ -1,0 +1,59 @@
+---
+//@ts-nocheck
+import TeamCard from "../components/TeamCard.astro";
+import Tekst from "@components/Tekst.astro";
+import Button from "@components/Button.astro";
+const { members } = Astro.props;
+---
+
+<section class="member-section full-bleed">
+  <div class="textnbtn">
+    <Tekst
+      title="We champion the bold"
+      subtitle="Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction."
+      eyebrow="OUR TEAM"
+    />
+
+    <Button variant="dark">Meet the team</Button>
+  </div>
+
+  <div class="team-list">
+    {members.slice(0, 2).map((member) => <TeamCard {...member} />)}
+  </div>
+</section>
+
+<style>
+  .member-section {
+    padding-block: var(--section-block-spacing);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .textnbtn {
+    grid-column: 1;
+
+    button {
+      margin-top: var(--space-s);
+    }
+  }
+
+  .team-list {
+    grid-column: 2;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .member-section {
+      padding-block: var(--section-block-spacing);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .team-list {
+        grid-column: 1;
+      }
+    }
+  }
+</style>

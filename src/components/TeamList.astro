@@ -1,0 +1,62 @@
+---
+//@ts-nocheck
+import TeamCard from "../components/TeamCard.astro";
+import Tekst from "@components/Tekst.astro";
+import Button from "@components/Button.astro";
+const { members } = Astro.props;
+---
+
+<section class="member-section full-bleed">
+  <div class="textnbtn">
+    <Tekst
+      title="Meet Our Great Team"
+      subtitle="Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts."
+      eyebrow=""
+    />
+
+    <Button variant="dark">Join our team</Button>
+  </div>
+
+  <div class="team-list">
+    {members.map((member) => <TeamCard {...member} />)}
+  </div>
+</section>
+
+<style>
+  .textnbtn {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: 1rem;
+  }
+
+  button {
+    justify-self: end;
+    width: max-content;
+    white-space: nowrap;
+  }
+
+  .team-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+
+  .member-section {
+    margin-block: var(--section-block-spacing);
+  }
+
+  @media (max-width: 800px) {
+    .textnbtn {
+      grid-template-columns: 1fr;
+
+      > button {
+        justify-self: start;
+        width: max-content;
+        display: flex;
+        gap: var(--space-s);
+      }
+    }
+  }
+</style>

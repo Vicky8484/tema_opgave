@@ -2,30 +2,130 @@
 import { Image } from "astro:assets";
 import Services from "./Services.astro";
 import CEOImage from "@assets/images/ceo.webp";
+import Button from "@components/Button.astro";
 ---
 
-<section class="hero">
+<section class="hero full-bleed nom">
   <div class="hero-content">
-    <h1>Empowering Your Business Growth</h1>
-    <p>
-      Discover tailored strategies and expert insights to take your business to
-      the next level. Let us help you navigate challenges and achieve
-      sustainable success.
-    </p>
-    <a href="#0">Book a Meeting</a>
-    <a href="#0">Learn More</a>
+    <div class="inner-content">
+      <h1><span class="gul-linje">Empowering</span> Your Business Growth</h1>
+      <p>
+        Discover tailored strategies and expert insights to take your business
+        to the next level. Let us help you navigate challenges and achieve
+        sustainable success.
+      </p>
+      <br />
+      <div class="button-box">
+        <Button variant="accent" href="#0">Book a Meeting</Button>
+        <Button variant="border" href="#0">Learn More</Button>
+      </div>
+    </div>
   </div>
-  <Image src={CEOImage} alt="CEO" />
 
-  <Services />
+  <Image class="hero-image" src={CEOImage} alt="CEO" />
+
+  <div class="services-grid-item">
+    <Services />
+  </div>
 </section>
 
 <style>
-  /* Styles her */
-  @layer components {
+  .hero {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full-start / full-end;
+
+    grid-template-rows: minmax(32rem, auto) auto;
+
+    .hero-content {
+      background-color: var(--color-ui-primary);
+      color: var(--color-surface-primary);
+
+      grid-template-columns: subgrid;
+      grid-column: full-start / center;
+      display: grid;
+      grid-row: 1;
+      padding-bottom: 8rem;
+
+      button {
+        background: var(--color-surface-primary);
+        border: none;
+        border-radius: var(--btn-border-radius);
+      }
+
+      .inner-content {
+        grid-column: content-start / center;
+        grid-row: 1;
+        align-items: center;
+        width: 60%;
+        margin-top: 5rem;
+
+        > button:first-child {
+          margin-right: var(--space-s);
+        }
+
+        .button-box {
+          display: flex;
+          gap: var(--space-s);
+        }
+      }
+
+      h1 {
+        color: var(--color-on-ui-primary);
+      }
+    }
+
+    .hero-image {
+      grid-column: center / full-end;
+      grid-row: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .services-grid-item {
+      grid-column: content-start / content-end;
+      grid-row: 2;
+      margin-top: -8rem;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  @media (max-width: 800px) {
     .hero {
-      background-color: #f3f4f6;
-      padding: 2rem;
+      grid-template-rows: auto auto;
+    }
+
+    .hero .hero-content {
+      grid-row: 1;
+      padding-bottom: var(--space-l);
+    }
+
+    .hero .hero-content .inner-content {
+      grid-row: auto;
+      margin-top: var(--space-l);
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero .hero-content {
+      grid-column: full-start / full-end;
+      width: 100%;
+    }
+
+    .hero .hero-content .inner-content {
+      grid-column: content-start / content-end;
+      width: 100%;
+    }
+
+    .hero .services-grid-item {
+      grid-row: 2;
+      margin-top: 0;
+      padding-top: var(--space-s);
+      padding-bottom: var(--section-block-spacing);
     }
   }
 </style>

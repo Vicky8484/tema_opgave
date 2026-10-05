@@ -1,0 +1,93 @@
+---
+//@ts-nocheck
+import LoginPopover from "@components/LoginPopover.astro";
+import Button from "@components/Button.astro";
+---
+
+<header>
+  <div class="header-inner">
+    <a href="../"><h1>Ask<span>Experts</span></h1></a>
+
+    <nav id="mainNavigation">
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../case-studies">Case Studies</a></li>
+        <li><a href="../team">Team</a></li>
+        <li><a href="../about">About</a></li>
+      </ul>
+    </nav>
+    <div class="burger-login">
+      <button
+        id="mobileMenuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false">☰</button
+      >
+
+      <Button variant="login" class="login-trigger" popovertarget="login"
+        >Login</Button
+      >
+      <LoginPopover />
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: var(--color-ui-primary);
+    color: var(--color-text-muted);
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      grid-template-columns: subgrid;
+      grid-column: content-start/content-end;
+    }
+
+    ul {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+        border-bottom: #2c2b2b11;
+        transition: border-bottom 1s ease;
+
+        &:hover {
+          border-bottom: var(--color-action) 3px solid;
+        }
+      }
+
+      a {
+        color: var(--color-surface-primary);
+        text-decoration: none;
+      }
+    }
+
+    :global(.login-trigger) {
+      anchor-name: --login-trigger;
+    }
+
+    a {
+      text-decoration: none;
+
+      h1 {
+        color: #fff;
+        span {
+          color: var(--color-action);
+        }
+      }
+    }
+  }
+
+  .burger-login[data-astro-cid-nen7h5rs] {
+    display: flex;
+    gap: var(--space-m);
+  }
+</style>

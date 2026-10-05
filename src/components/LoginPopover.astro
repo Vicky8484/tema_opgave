@@ -1,0 +1,68 @@
+---
+//@ts-nocheck
+import Button from "@components/Button.astro";
+---
+
+<div popover id="login">
+  <h1>Dashboard Login</h1>
+  <form>
+    <label for="email">
+      Email
+      <input type="email" variant="input" placeholder="Email" />
+    </label>
+    <label for="password">
+      Password
+      <input type="password" variant="input" placeholder="Password" />
+    </label>
+  </form>
+  <Button variant="accent" popovertarget="login">Go to dashboard</Button>
+</div>
+
+<style>
+  #login {
+    background: var(--color-on-ui-primary);
+    width: 300px;
+    padding: var(--space-s);
+
+    border-radius: var(--btn-border-radius);
+    position: fixed;
+    position-anchor: --login-trigger;
+    inset: auto;
+    top: anchor(bottom);
+    right: anchor(right);
+    margin: var(--space-s) 0 0;
+    box-shadow: #00000069 5px 5px 5px;
+    border: none;
+    color: var(--color-text);
+
+    h1 {
+      padding-block: var(--space-s);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    margin-top: var(--space-s);
+
+    label {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: var(--space-s);
+    }
+
+    input {
+      border-radius: var(--btn-border-radius);
+      height: 3rem;
+      align-items: center;
+      border: grey solid 1px;
+      margin-top: 10px;
+      padding-inline: var(--space-s);
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+</style>
