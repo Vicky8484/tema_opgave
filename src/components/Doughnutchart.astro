@@ -1,242 +1,228 @@
- ---
- //@ts-nocheck
-
+---
+//@ts-nocheck
+import Tekst from "@components/Tekst.astro";
 
 const response = await fetch("https://ftk-api.pages.dev/experience");
 const Doughnut = await response.json();
-const {title, subtitle, eyebrow, stats } = Doughnut; 
- ---
+const { title, subtitle, eyebrow, stats } = Doughnut;
+---
 
 <div class="full-bleed">
- <div class="tekst-grafer">
-<div>
- <h3>{eyebrow}</h3>
-<h1>{title}</h1>
-<h4>{subtitle}</h4> 
- </div>
- <div class="statbox">
-    <section class="stat-list" aria-label="Statistik">
-          {stats.map((stat) => (
-      <figure  data-value={stat.value}>
-        <svg viewBox="0 0 100 100">
-          <circle  class="track" />
-          <circle class="progress" pathLength="100" />
-          <circle class="marker" r="4" fill="var(--color-neutrals-900)"/>
-        </svg>
-
-
-        <figcaption>{stat.label}</figcaption>
-      </figure>
-      ))}
-
-    </section>
+  <div class="tekst-grafer">
+    <div class="text">
+      <Tekst title={title} subtitle={subtitle} eyebrow={eyebrow} />
     </div>
+    <div class="statbox">
+      <section class="stat-list" aria-label="Statistik">
+        {
+          stats.map((stat) => (
+            <figure data-value={stat.value}>
+              <svg viewBox="0 0 100 100">
+                <circle class="track" />
+                <circle class="progress" pathLength="100" />
+                <circle class="marker" r="4" fill="var(--color-neutrals-900)" />
+              </svg>
+
+              <figcaption>{stat.label}</figcaption>
+            </figure>
+          ))
+        }
+      </section>
+    </div>
+  </div>
 </div>
-</div>
 
-
-  <style>
-
-.tekst-grafer{
+<style>
+  .tekst-grafer {
     display: grid;
- grid-template-columns: 1fr 2fr ;
- margin-block: var( --section-block-spacing); 
+    grid-template-columns: 1fr 2fr;
+    padding-block: var(--section-block-spacing);
 
-    h3, h4{
-        text-align: center;
+    h3,
+    h4 {
+      text-align: center;
     }
-     align-items: center;
-}
+    align-items: center;
+  }
 
-.full-bleed{
-   background-color: var(--color-surface-highlight); 
-   
-}
+  .full-bleed {
+    background-color: var(--color-surface-highlight);
+  }
 
+  main {
+    max-inline-size: 60rem;
+    margin-inline: auto;
+  }
 
+  h1 {
+    margin-block-end: 2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.125;
+    text-align: center;
+  }
 
-main {
-  max-inline-size: 60rem;
-  margin-inline: auto;
-}
+  .stat-list {
+    margin-left: 20%;
+    display: flex;
 
-h1 {
-  margin-block-end: 2rem;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.125;
-  text-align: center;
-}
+    justify-content: center;
+    gap: 2rem;
+  }
 
-.stat-list {
-margin-left: 20%;
-  display: flex;
-  
-  justify-content: center;
-  gap: 2rem;
- 
-}
+  figure {
+    flex: 0 1 200px;
+    min-inline-size: 0;
+    text-align: center;
 
+    --value: attr(data-value type(<number>));
+    --value-string: attr(data-value);
+    --value-percent: attr(data-value %);
 
-figure {
-  flex: 0 1 200px;
-  min-inline-size: 0;
-  text-align: center;
+    container: circle/inline-size;
+    display: grid;
+    grid: "stack";
+    place-items: center;
 
-  --value: attr(data-value type(<number>));
-  --value-string: attr(data-value);
-  --value-percent: attr(data-value %);
+    /* Animation trigger conditions */
+    timeline-trigger: --trigger view() entry 100% exit 2%;
 
-  container: circle/inline-size;
-  display: grid;
-  grid: "stack";
-  place-items: center;
+    /* Animation trigger settings */
+    animation-trigger: --trigger play-forwards play-backwards;
+  }
 
-      /* Animation trigger conditions */
-  timeline-trigger: --trigger view() entry 100% exit 2%;
+  @property --tal {
+    syntax: "<integer>";
+    inherits: true;
+    initial-value: 0;
+  }
 
-  /* Animation trigger settings */
-  animation-trigger: --trigger play-forwards play-backwards;
-
-}
-
-   @property --tal{
-      syntax: "<integer>" ;
-        inherits: true; 
-        initial-value: 0;
-     }
-
-figure::after {
-  grid-area: stack;
-  font-size: 30cqw;
-  font-weight: 700;
-  /* TODO 3: Vis --value-string med content, og placér tallet i "stack".
+  figure::after {
+    grid-area: stack;
+    font-size: 30cqw;
+    font-weight: 700;
+    /* TODO 3: Vis --value-string med content, og placér tallet i "stack".
      Brug 30cqw og font-weight: 700, så tallet følger figurens bredde. */
-  --tal: attr(data-value type(<integer>)); 
-     counter-reset: taeller var(--tal);
-     content: counter(taeller) "%";
-animation: tael-op 2s ease-out;
- animation-trigger: --trigger play-forwards play-backwards;
-
-}
-
-.progress{
-  animation: opfyldning 2s ease-out;
-  animation-trigger: --trigger play-forwards play-backwards;
-
-}
-
-@keyframes tael-op {
-  from {
-    --tal: 0;
-  }
-}
-
-@keyframes opfyldning {
-  from {
- stroke-dashoffset: 100;
-}
-  
-  
-}
-
-.marker{
-  animation: prik 2s ease-out;
-  animation-trigger: --trigger play-forwards play-backwards;
-}
-
-@keyframes prik {
-  from{
-     offset-distance: 0%;
+    --tal: attr(data-value type(<integer>));
+    counter-reset: taeller var(--tal);
+    content: counter(taeller) "%";
+    animation: tael-op 2s ease-out;
+    animation-trigger: --trigger play-forwards play-backwards;
   }
 
-  
-}
+  .progress {
+    animation: opfyldning 2s ease-out;
+    animation-trigger: --trigger play-forwards play-backwards;
+  }
 
-svg {
-  rotate: -90deg;
-  grid-area: stack;
-  overflow: visible;
-  /* TODO 2: Drej SVG'en -90deg, så ringen starter øverst. */
-  /* TODO 3: Placér SVG'en i "stack". */
-}
+  .text {
+    text-align: center;
+  }
 
-.track {
-  stroke: var(--color-neutrals-200);
-}
+  @keyframes tael-op {
+    from {
+      --tal: 0;
+    }
+  }
 
-.track,
-.progress {
-  --stroke-width: 4;
-  cx: 50;
-  cy: 50;
-  r: calc(50 - (var(--stroke-width) / 2));
-  fill: none;
-  stroke: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);
-      --l: - .10;
-  stroke-width: var(--stroke-width);
-}
+  @keyframes opfyldning {
+    from {
+      stroke-dashoffset: 100;
+    }
+  }
 
-.progress {
-  stroke: var(--color-neutrals-200);
-  stroke-linecap: round;
-  stroke-dasharray: 100.1;
-  stroke-dashoffset: calc(100 - var(--value));
-  /* TODO 2: Brug stroke-dasharray og stroke-dashoffset sammen med
+  .marker {
+    animation: prik 2s ease-out;
+    animation-trigger: --trigger play-forwards play-backwards;
+  }
+
+  @keyframes prik {
+    from {
+      offset-distance: 0%;
+    }
+  }
+
+  svg {
+    rotate: -90deg;
+    grid-area: stack;
+    overflow: visible;
+    /* TODO 2: Drej SVG'en -90deg, så ringen starter øverst. */
+    /* TODO 3: Placér SVG'en i "stack". */
+  }
+
+  .track {
+    stroke: var(--color-neutrals-200);
+  }
+
+  .track,
+  .progress {
+    --stroke-width: 4;
+    cx: 50;
+    cy: 50;
+    r: calc(50 - (var(--stroke-width) / 2));
+    fill: none;
+    stroke: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);
+    --l: -0.1;
+    stroke-width: var(--stroke-width);
+  }
+
+  .progress {
+    stroke: var(--color-neutrals-200);
+    stroke-linecap: round;
+    stroke-dasharray: 100.1;
+    stroke-dashoffset: calc(100 - var(--value));
+    /* TODO 2: Brug stroke-dasharray og stroke-dashoffset sammen med
      pathLength="100", så --value-number bestemmer ringens længde. */
-}
+  }
 
-.marker {
-  /* Markøren vises først, når du arbejder med trin 4. */
-  visibility: visible;
-  r: 4;
-  stroke: var(  --color-neutrals-900);
-  offset-path: circle(48px at 50px 50px);
-  offset-distance: var(--value-percent);
-  /* TODO 4: Brug en cirkulær offset-path med samme centrum og radius
+  .marker {
+    /* Markøren vises først, når du arbejder med trin 4. */
+    visibility: visible;
+    r: 4;
+    stroke: var(--color-neutrals-900);
+    offset-path: circle(48px at 50px 50px);
+    offset-distance: var(--value-percent);
+    /* TODO 4: Brug en cirkulær offset-path med samme centrum og radius
      som ringen. Lad --value-percent styre offset-distance,
      og skift visibility til visible. */
-}
-
-figcaption {
-  margin-block-start: 0.75rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marker{
-    animation: none;
-    animation-trigger: none; 
   }
-  .progress{
-    animation: none;
-    animation-trigger: none; 
+
+  figcaption {
+    margin-block-start: 0.75rem;
   }
-  figure::after{
-    animation: none;
-    animation-trigger: none; 
-  }
-}
 
- @media (max-width: 500px){
-.tekst-grafer{
- grid-template-columns: 1fr;
- }
-
- figure{
-  margin-top: 1rem;
-flex-wrap: wrap;
- }
- .stat-list{
-  margin-left: 0%;
- }
-
-}
-
-  @supports not (animation-trigger:  --trigger play-forwards play-backwards) {
-    .marker{
-      display: none; 
+  @media (prefers-reduced-motion: reduce) {
+    .marker {
+      animation: none;
+      animation-trigger: none;
+    }
+    .progress {
+      animation: none;
+      animation-trigger: none;
+    }
+    figure::after {
+      animation: none;
+      animation-trigger: none;
     }
   }
 
-  </style>
+  @media (max-width: 500px) {
+    .tekst-grafer {
+      grid-template-columns: 1fr;
+    }
 
+    figure {
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .stat-list {
+      margin-left: 0%;
+    }
+  }
+
+  @supports not (animation-trigger: --trigger play-forwards play-backwards) {
+    .marker {
+      display: none;
+    }
+  }
+</style>

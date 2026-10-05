@@ -1,140 +1,157 @@
 ---
 //@ts-nocheck
-import { Image } from 'astro:assets';
-import dame from '../data/images/damemedkryllethårderkiggerpådig.jpg';
-import todamehænder from '../data/images/todamehænder.jpg';
-import todamercompu from '../data/images/todamermedencomputer.jpg';
-import Phone from '../icons/phone.svg';
-import Clock from '../icons/clock.svg';
-import Place from '../icons/pin.svg'
+import { Image } from "astro:assets";
+import dame from "../data/images/damemedkryllethårderkiggerpådig.jpg";
+import todamehænder from "../data/images/todamehænder.jpg";
+import todamercompu from "../data/images/todamermedencomputer.jpg";
+import Phone from "../icons/phone.svg";
+import Clock from "../icons/clock.svg";
+import Place from "../icons/pin.svg";
+import Tekst from "@components/Tekst.astro";
 ---
 
 <div class="detstore-grid">
-<div class="Teksten">
-<p class="process">Process</p>
-<h1>Contact Us. It’s Easy.</h1>
-<p>Leverage agile frameworks to provide a robust synopsis for high level overviews.
-     Iterative approaches to corporate strategy foster collaborative.</p>
-<ul style="list-style-type:none;">
-    <li ><Phone style="--accent: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);"/>
+  <div class="Teksten">
+    <Tekst
+      eyebrow="PROCESS"
+      title="Contact Us. It’s Easy."
+      subtitle="Leverage agile frameworks to provide a robust synopsis for high level
+      overviews. Iterative approaches to corporate strategy foster
+      collaborative."
+    />
+
+    <ul style="list-style-type:none;">
+      <li>
+        <Phone
+          style="--accent: oklch(from var(--color-yellow-500) calc(l var(--l,)) c h);"
+        />
         <div>
-        Call Today
-<b>+1 800 100 900</b></div></li>
-    <li><Clock style="--accent: var(--color-ui-secondary)"/>
-       <div> Monday To Friday
-<b>9AM - 5PM</b></div></li>
-   <li> <Place style="--accent: var(--color-on-ui-primary-muted)"/> 
-       <div> USA Office
-<b>195 Devonshire St Boston, MA 02110</b>
-</div></li>
-</ul>
-</div>
+          Call Today
+          <b>+1 800 100 900</b>
+        </div>
+      </li>
+      <li>
+        <Clock style="--accent: var(--color-ui-secondary)" />
+        <div>
+          Monday To Friday
+          <b>9AM - 5PM</b>
+        </div>
+      </li>
+      <li>
+        <Place style="--accent: var(--color-on-ui-primary-muted)" />
+        <div>
+          USA Office
+          <b>195 Devonshire St Boston, MA 02110</b>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-<div class="gridafbillder">
+  <div class="gridafbillder">
     <figure>
-  <Image src= {dame} alt="Dame med kryllet hår der kigger på dig"/>
-  </figure>
-  <Image src= {todamehænder} alt="to sæt kvinde hænder"/>
-  <Image src= {todamercompu} alt="to kvinder der snakker sammen over en computer"/>
+      <Image src={dame} alt="Dame med kryllet hår der kigger på dig" />
+    </figure>
+    <Image src={todamehænder} alt="to sæt kvinde hænder" />
+    <Image
+      src={todamercompu}
+      alt="to kvinder der snakker sammen over en computer"
+    />
+  </div>
 </div>
-</div>
-
 
 <style>
-
-    h1{
-    margin-block: var( --section-block-spacing);
+  .Teksten {
+    margin-right: var(--space-m);
   }
-    p{
-        color: var(--color-text-weak);
-    }
-    b{
-         color: var(--color-ui-primary); 
-         display: block;
-    }
-ul{
+  h1 {
+    margin-block: var(--section-block-spacing);
+  }
+  p {
+    color: var(--color-text-weak);
+  }
+  b {
+    color: var(--color-ui-primary);
+    display: block;
+  }
+  ul {
     gap: 2rem;
     display: flex; /**overskriver en global regl */
-    flex-direction: column;   /**overskriver en global regl */
+    flex-direction: column; /**overskriver en global regl */
     color: var(--color-text-weak);
     padding-left: 0%;
- li{
-display: flex;
-gap: 1rem;
-align-items: center;
+    li {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
-}
+  }
 
-.process{
-text-transform: uppercase;
-}
+  .process {
+    text-transform: uppercase;
+  }
 
-svg { 
+  svg {
     border-radius: 50%;
-    color:var(--accent);
+    color: var(--accent);
     background-color: oklch(from var(--accent) calc(l + 0.2) c h);
     padding: 1rem;
-inline-size: 1.5rem;  
-block-size: 1.5rem;
-box-sizing: content-box;
-}
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    box-sizing: content-box;
+  }
 
-.detstore-grid{
-      display: grid;
- grid-template-columns: 1fr 2fr ;
- grid-column: content;
+  .detstore-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column: content;
 
-margin: 2rem;
-margin-block: var( --section-block-spacing);
-    
+    margin: 2rem;
+    margin-block: var(--section-block-spacing);
+  }
 
-}
-
-    .gridafbillder{
-        display: grid;
-       grid-template-columns: 1fr 1fr;
-      & > :first-child{
-grid-row: span 2;
-     }
-     gap: 1rem;
+  .gridafbillder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    & > :first-child {
+      grid-row: span 2;
     }
-    
+    gap: 1rem;
+  }
+
   figure {
-  margin: 0;
+    margin: 0;
+    img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+
+    display: block;
+    /**til start med^^*/
+
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: -1rem;
+      height: 100px;
+      width: 100px;
+      background: var(--color-ui-secondary);
+      z-index: -1;
+      border-radius: 15px;
+    }
+  }
   img {
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-}
-
-  display: block;
-/**til start med^^*/
-
-  position: relative;
-  isolation: isolate; 
-  
-  &::before{
-    content: "";
-    position: absolute;
-    bottom: -1rem;
-    left: -1rem; 
-    height: 100px;
-    width: 100px;
-    background: var(--color-ui-secondary);
-    z-index: -1; 
     border-radius: 15px;
   }
-}
- img{
-    border-radius: 15px; 
+
+  @media (max-width: 500px) {
+    .detstore-grid {
+      grid-template-columns: 1fr;
+    }
   }
-
-
-@media (max-width: 500px){
-  .detstore-grid{ grid-template-columns: 1fr;}
-  
-}
-
 </style>
-
