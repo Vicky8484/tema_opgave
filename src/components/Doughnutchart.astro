@@ -21,7 +21,7 @@ const {title, subtitle, eyebrow, stats } = Doughnut;
         <svg viewBox="0 0 100 100">
           <circle  class="track" />
           <circle class="progress" pathLength="100" />
-          <circle class="marker" r="4" fill="red"/>
+          <circle class="marker" r="4" fill="var(--color-neutrals-900)"/>
         </svg>
 
 
@@ -230,6 +230,12 @@ flex-wrap: wrap;
  }
 
 }
+
+  @supports not (animation-trigger:  --trigger play-forwards play-backwards) {
+    .marker{
+      display: none; 
+    }
+  }
 
   </style>
 
