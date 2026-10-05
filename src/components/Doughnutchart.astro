@@ -86,9 +86,6 @@ figure {
   --value-string: attr(data-value);
   --value-percent: attr(data-value %);
 
-  /* TODO 1: Læs data-value som tekst, tal og procent med attr().
-     Kald værdierne --value-string, --value-number og --value-percent. */
-
   container: circle/inline-size;
   display: grid;
   grid: "stack";
@@ -100,8 +97,6 @@ figure {
   /* Animation trigger settings */
   animation-trigger: --trigger play-forwards play-backwards;
 
-  /* TODO 3: Brug et fælles grid-område "stack" til SVG og ::after.
-     Centrér indholdet, og opret en inline-size-container med navnet stat. */
 }
 
    @property --tal{
